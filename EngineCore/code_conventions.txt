@@ -1,0 +1,30 @@
+// Types
+class ShaderProgram {};
+struct Vertex {};
+class Camera {};
+
+// Functions
+void loadModel();
+void update();
+void render();
+
+// Variables
+int vertexCount;
+float deltaTime;
+glm::mat4 projectionMatrix;
+
+// Members / Private
+GLuint m_vao;
+GLuint m_vbo;
+
+// Files
+shader_program.h
+shader_program.cpp
+mesh.cpp
+camera.h
+
+// Constants
+constexpr int kMaxLights = 8;
+
+// Macros
+#define GL_CHECK(x)

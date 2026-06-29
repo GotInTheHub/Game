@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="System">
+      <UniqueIdentifier>{a1b30763-21d4-4747-ab5a-0ca4ddd8ba76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{ca9a3e8c-afdd-409f-af67-1ffd64c0ae42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{2b9857b8-b876-4f5f-a8a1-3e31fe7d67ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{6c618e6e-3983-4b62-97ad-9bf7607a4b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{ad7432b4-5dcf-4df9-a256-cd14a4f55fc8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="config.hpp">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.hpp">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\renderer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\graphics_context.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="openGL_error.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="window.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\renderer.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\graphics_context.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\glad.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logger.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="openGL_error.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="code_conventions.txt" />
+  </ItemGroup>
+</Project>
