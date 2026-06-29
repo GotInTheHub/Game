@@ -1,9 +1,7 @@
 #include "logger.h"
-
-#include <iostream>
 #include <chrono>
-#include <ctime>
-#include <sstream>
+#include <cstring>
+#include <iostream>
 
 // ---------------- Singleton ----------------
 
@@ -29,20 +27,13 @@ Logger::~Logger()
 
 void Logger::initFile(const std::string& filename)
 {
-    std::lock_guard<std::mutex> lock(m_queueMutex);
-
     m_logFile.open(filename, std::ios::app);
-    m_logToFile = m_logFile.is_open();
+    m_fileEnabled = m_logFile.is_open();
 }
 
 void Logger::shutdown()
 {
-    bool expected = true;
-	if (!m_running.compare_exchange_strong(expected, false)) {
-		return; // Already shutting down
-	}
-
-	m_cv.notify_all();
+	m_running = false;
 
 	if (m_worker.joinable()) {
 		m_worker.join();
@@ -55,18 +46,23 @@ void Logger::shutdown()
 
 // ---------------- Logging API ----------------
 
-void Logger::log(LogLevel level, LogCategory category, const std::string& message)
+void Logger::log(LogLevel level, LogCategory category, const char* message)
 {
-	if (level < m_minLogLevel) {
-		return;
-	}
+    LogEntry e{};
+	e.level = level;
+	e.category = category;
+    e.timestamp = 
+        (uint64_t)std::chrono::high_resolution_clock::now()
+		.time_since_epoch().count();
 
-    {
-		std::lock_guard<std::mutex> lock(m_queueMutex);
-		m_queue.push({ level, category, message });
-    }
+    strncpy_s(e.message, message, sizeof(e.message) - 1);
 
-	m_cv.notify_one();
+    m_logBuffer.push(e);
+}
+
+const std::vector<LogEntry>& Logger::getHistory() const
+{
+    return m_history;
 }
 
 // ---------------- Worker thread ----------------
@@ -74,99 +70,48 @@ void Logger::log(LogLevel level, LogCategory category, const std::string& messag
 void Logger::workerThread()
 {
     while (m_running) {
-        std::unique_lock<std::mutex> lock(m_queueMutex);
+        LogEntry e;
 
-        m_cv.wait(lock, [&] {
-            return !m_queue.empty() || !m_running;
-        });
-
-        while (!m_queue.empty())
+        while (m_running)
         {
-            LogMessage msg = std::move(m_queue.front());
-            m_queue.pop();
-            lock.unlock();
-
-            // timestamp
-            auto now = std::chrono::system_clock::now();
-            std::time_t t = std::chrono::system_clock::to_time_t(now);
-
-            char timeStr[26];
-            ctime_s(timeStr, sizeof(timeStr), &t);
-            timeStr[strcspn(timeStr, "\n")] = 0;
-
-            std::ostringstream out;
-            out << "[" << timeStr << "]"
-                << " [" << getLevelToString(msg.level) << "]"
-                << " [" << getCategoryToString(msg.category) << "] "
-                << msg.message;
-
-            std::string final = out.str();
-
-            std::cout << final << std::endl;
-
-            if (m_logToFile && m_logFile.is_open())
+            while (m_logBuffer.pop(e))
             {
-                m_logFile << final << std::endl;
+                {
+                    std::lock_guard<std::mutex> lock(m_historyMutex);
+                    m_history.push_back(e);
+                    if (m_history.size() > 10000)
+                        m_history.erase(m_history.begin());
+                }
+
+                std::cout << e.message << std::endl;
+
+                if (m_fileEnabled)
+                    m_logFile << e.message << std::endl;
             }
 
-            lock.lock();
-        };
-    };
-};
-
-// ---------------- Helpers ----------------
-
-const char* Logger::getLevelToString(LogLevel level) const
-{
-    switch (level) {
-    case LogLevel::INFO: return "INFO";
-    case LogLevel::WARNING: return "WARNING";
-    case LogLevel::ERROR: return "ERROR";
-    case LogLevel::DEBUG: return "DEBUG";
-    default: return "UNKNOWN";
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
     }
-}
-
-const char* Logger::getCategoryToString(LogCategory category) const
-{
-	switch (category) {
-	case LogCategory::ENGINE: return "ENGINE";
-	case LogCategory::RENDER: return "RENDER";
-	case LogCategory::AUDIO: return "AUDIO";
-	case LogCategory::PHYSICS: return "PHYSICS";
-	case LogCategory::GAMEPLAY: return "GAMEPLAY";
-	case LogCategory::NETWORK: return "NETWORK";
-	case LogCategory::GENERAL: return "GENERAL";
-	default: return "UNKNOWN";
-	}
-}
-
-// ---------------- Core logging ----------------
-
-void Logger::setMinLogLevel(LogLevel level)
-{
-    std::lock_guard<std::mutex> lock(m_queueMutex);
-    m_minLogLevel = level;
-}
+};
 
 // ---------------- Convenience ----------------
 
-void Logger::info(LogCategory cat, const std::string& msg)
+void Logger::info(LogCategory cat, const char* msg)
 {
     instance().log(LogLevel::INFO, cat, msg);
 }
 
-void Logger::warn(LogCategory cat, const std::string& msg)
+void Logger::warn(LogCategory cat, const char* msg)
 {
     instance().log(LogLevel::WARNING, cat, msg);
 }
 
-void Logger::error(LogCategory cat, const std::string& msg)
+void Logger::error(LogCategory cat, const char* msg)
 {
     instance().log(LogLevel::ERROR, cat, msg);
 }
 
-void Logger::debug(LogCategory cat, const std::string& msg)
+void Logger::debug(LogCategory cat, const char* msg)
 {
     instance().log(LogLevel::DEBUG, cat, msg);
 }

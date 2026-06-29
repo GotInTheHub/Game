@@ -1,57 +1,32 @@
 #pragma once
 
-#include <string>
+#include "log_buffer.h"
+#include <thread>
+#include <atomic>
 #include <fstream>
 #include <mutex>
-#include <thread>
-#include <queue>
-#include <condition_variable>
-#include <atomic>
-
-enum class LogLevel {
-    INFO,
-    WARNING,
-    ERROR,
-    DEBUG
-};
-
-enum class LogCategory {
-    ENGINE,
-    RENDER,
-    AUDIO,
-    PHYSICS,
-    GAMEPLAY,
-    NETWORK,
-    GENERAL
-};
-
-struct LogMessage {
-    LogLevel level;
-    LogCategory category;
-    std::string message;
-};
+#include <vector>
 
 class Logger {
 private:
-    std::ofstream m_logFile;
-
-    std::mutex m_queueMutex;
-	std::condition_variable m_cv;
-	std::queue<LogMessage> m_queue;
+	LogBuffer m_logBuffer;
 
     std::thread m_worker;
 	std::atomic<bool> m_running{ true };
+    
+    
+    std::ofstream m_logFile;
+    bool m_fileEnabled = false;
 
-    LogLevel m_minLogLevel = LogLevel::DEBUG;
-    bool m_logToFile = false;
+	// retained history for ImGui log window
+    std::vector<LogEntry> m_history;
+    std::mutex m_historyMutex;
 
+private:
     Logger();
     ~Logger();
 
     void workerThread();
-
-    const char* getLevelToString(LogLevel level) const;
-	const char* getCategoryToString(LogCategory category) const;
 
 public:
     Logger(const Logger&) = delete;
@@ -62,12 +37,12 @@ public:
     void initFile(const std::string& filename);
 	void shutdown();
 
-    void log(LogLevel level, LogCategory category, const std::string& message);
+    void log(LogLevel level, LogCategory category, const char* message);
 
-    void setMinLogLevel(LogLevel level);
+    const std::vector<LogEntry>& getHistory() const;
 
-    static void info(LogCategory cat, const std::string& msg);
-    static void warn(LogCategory cat, const std::string& msg);
-    static void error(LogCategory cat, const std::string& msg);
-    static void debug(LogCategory cat, const std::string& msg);
+    static void info(LogCategory c, const char* m);
+    static void warn(LogCategory c, const char* m);
+    static void error(LogCategory c, const char* m);
+    static void debug(LogCategory c, const char* m);
 };
