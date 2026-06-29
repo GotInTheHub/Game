@@ -1,2 +1,8 @@
-﻿  window.cpp
+﻿  glad.c
+  graphics_context.cpp
+  renderer.cpp
+  logger.cpp
+  openGL_error.cpp
+  window.cpp
+  Generating Code...
   EngineCore.vcxproj -> C:\Users\Tristan\AppData\Roaming\GitHub\Game\x64\Debug\EngineCore.lib

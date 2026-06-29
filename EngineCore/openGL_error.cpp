@@ -30,7 +30,7 @@ bool OpenGLError::check(const std::string & context)
         case GL_INVALID_FRAMEBUFFER_OPERATION: errorMsg += " (GL_INVALID_FRAMEBUFFER_OPERATION)"; break;
         }
 
-        Logger::error(errorMsg);
+        Logger::error(LogCategory::RENDER, errorMsg);
         return true;
     }
 
@@ -62,10 +62,12 @@ bool OpenGLError::checkThrottled(const std::string& context, float throttleSecon
             case GL_INVALID_FRAMEBUFFER_OPERATION: errorMsg += " (GL_INVALID_FRAMEBUFFER_OPERATION)"; break;
             }
 
-            Logger::error(errorMsg);
+            Logger::error(LogCategory::RENDER, errorMsg);
             lastLogTime = currentTime;
         }
 
         return true;
     }
+
+    return false;
 }

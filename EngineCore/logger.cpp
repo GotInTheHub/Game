@@ -1,10 +1,9 @@
 #include "logger.h"
 
+#include <iostream>
 #include <chrono>
 #include <ctime>
 #include <sstream>
-#include <iostream>
-#include <cstring>
 
 // ---------------- Singleton ----------------
 
@@ -14,20 +13,110 @@ Logger& Logger::instance()
     return inst;
 }
 
-// ---------------- Constructor / Destructor ----------------
+// ---------------- Lifecycle ----------------
 
-Logger::Logger() = default;
+Logger::Logger()
+{
+    m_worker = std::thread(&Logger::workerThread, this);
+}
 
 Logger::~Logger()
 {
-    if (m_logFile.is_open()) {
-        m_logFile.close();
-    }
+    shutdown();
 }
+
+// ---------------- Init / Shutdown ----------------
+
+void Logger::initFile(const std::string& filename)
+{
+    std::lock_guard<std::mutex> lock(m_queueMutex);
+
+    m_logFile.open(filename, std::ios::app);
+    m_logToFile = m_logFile.is_open();
+}
+
+void Logger::shutdown()
+{
+    bool expected = true;
+	if (!m_running.compare_exchange_strong(expected, false)) {
+		return; // Already shutting down
+	}
+
+	m_cv.notify_all();
+
+	if (m_worker.joinable()) {
+		m_worker.join();
+	}
+
+	if (m_logFile.is_open()) {
+		m_logFile.close();
+	}
+}
+
+// ---------------- Logging API ----------------
+
+void Logger::log(LogLevel level, LogCategory category, const std::string& message)
+{
+	if (level < m_minLogLevel) {
+		return;
+	}
+
+    {
+		std::lock_guard<std::mutex> lock(m_queueMutex);
+		m_queue.push({ level, category, message });
+    }
+
+	m_cv.notify_one();
+}
+
+// ---------------- Worker thread ----------------
+
+void Logger::workerThread()
+{
+    while (m_running) {
+        std::unique_lock<std::mutex> lock(m_queueMutex);
+
+        m_cv.wait(lock, [&] {
+            return !m_queue.empty() || !m_running;
+        });
+
+        while (!m_queue.empty())
+        {
+            LogMessage msg = std::move(m_queue.front());
+            m_queue.pop();
+            lock.unlock();
+
+            // timestamp
+            auto now = std::chrono::system_clock::now();
+            std::time_t t = std::chrono::system_clock::to_time_t(now);
+
+            char timeStr[26];
+            ctime_s(timeStr, sizeof(timeStr), &t);
+            timeStr[strcspn(timeStr, "\n")] = 0;
+
+            std::ostringstream out;
+            out << "[" << timeStr << "]"
+                << " [" << getLevelToString(msg.level) << "]"
+                << " [" << getCategoryToString(msg.category) << "] "
+                << msg.message;
+
+            std::string final = out.str();
+
+            std::cout << final << std::endl;
+
+            if (m_logToFile && m_logFile.is_open())
+            {
+                m_logFile << final << std::endl;
+            }
+
+            lock.lock();
+        };
+    };
+};
 
 // ---------------- Helpers ----------------
 
-const char* Logger::getLevelString(LogLevel level) const
+const char* Logger::getLevelToString(LogLevel level) const
 {
     switch (level) {
     case LogLevel::INFO: return "INFO";
@@ -38,69 +127,46 @@ const char* Logger::getLevelString(LogLevel level) const
     }
 }
 
-// ---------------- Core logging ----------------
-
-void Logger::enableFileLogging(const std::string& filename)
+const char* Logger::getCategoryToString(LogCategory category) const
 {
-    std::lock_guard<std::mutex> lock(m_mutex);
-
-    m_logFile.open(filename, std::ios::app);
-    m_logToFile = m_logFile.is_open();
+	switch (category) {
+	case LogCategory::ENGINE: return "ENGINE";
+	case LogCategory::RENDER: return "RENDER";
+	case LogCategory::AUDIO: return "AUDIO";
+	case LogCategory::PHYSICS: return "PHYSICS";
+	case LogCategory::GAMEPLAY: return "GAMEPLAY";
+	case LogCategory::NETWORK: return "NETWORK";
+	case LogCategory::GENERAL: return "GENERAL";
+	default: return "UNKNOWN";
+	}
 }
+
+// ---------------- Core logging ----------------
 
 void Logger::setMinLogLevel(LogLevel level)
 {
-    std::lock_guard<std::mutex> lock(m_mutex);
+    std::lock_guard<std::mutex> lock(m_queueMutex);
     m_minLogLevel = level;
 }
 
-void Logger::log(LogLevel level, const std::string& message)
+// ---------------- Convenience ----------------
+
+void Logger::info(LogCategory cat, const std::string& msg)
 {
-    std::lock_guard<std::mutex> lock(m_mutex);
-
-    if (level < m_minLogLevel)
-        return;
-
-    auto now = std::chrono::system_clock::now();
-    std::time_t time = std::chrono::system_clock::to_time_t(now);
-
-    char timeStr[26];
-    ctime_s(timeStr, sizeof(timeStr), &time);
-
-    // remove newline
-    timeStr[strcspn(timeStr, "\n")] = 0;
-
-    std::stringstream ss;
-    ss << "[" << timeStr << "] ["
-        << getLevelString(level) << "] "
-        << message;
-
-    std::cout << ss.str() << std::endl;
-
-    if (m_logToFile && m_logFile.is_open()) {
-        m_logFile << ss.str() << std::endl;
-        m_logFile.flush();
-    }
+    instance().log(LogLevel::INFO, cat, msg);
 }
 
-// ---------------- Convenience wrappers ----------------
-
-void Logger::info(const std::string& msg)
+void Logger::warn(LogCategory cat, const std::string& msg)
 {
-    instance().log(LogLevel::INFO, msg);
+    instance().log(LogLevel::WARNING, cat, msg);
 }
 
-void Logger::warning(const std::string& msg)
+void Logger::error(LogCategory cat, const std::string& msg)
 {
-    instance().log(LogLevel::WARNING, msg);
+    instance().log(LogLevel::ERROR, cat, msg);
 }
 
-void Logger::error(const std::string& msg)
+void Logger::debug(LogCategory cat, const std::string& msg)
 {
-    instance().log(LogLevel::ERROR, msg);
-}
-
-void Logger::debug(const std::string& msg)
-{
-    instance().log(LogLevel::DEBUG, msg);
+    instance().log(LogLevel::DEBUG, cat, msg);
 }

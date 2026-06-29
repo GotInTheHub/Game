@@ -10,7 +10,7 @@ int Window::setupWindow(std::string& windowName)
 	m_window = glfwCreateWindow(m_width, m_height, windowName.c_str(), nullptr, nullptr);
 	if (m_window == nullptr)
 	{
-		Logger::error("Failed to create GLFW window");
+		Logger::error(LogCategory::ENGINE, "Failed to create GLFW window");
 		return -1;
 	}
 
