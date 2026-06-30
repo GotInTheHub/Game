@@ -1,21 +1,20 @@
 #include "player_controller.h"
+#include "game_input.hpp"
 
-void PlayerController::update(InputManager<GameAction>& input)
+void PlayerController::update(InputSystem<GameAction>& input)
 {
-	float x = input.actions().getAxis(
-		GameAction::MoveRight,
-		input.keyboard());
+    input.processEvents();
 
-	float z = input.actions().getAxis(
-		GameAction::MoveForward,
-		input.keyboard());
+    auto& kb = input.keyboard();
+    auto& a = input.actions();
 
-	//player.move(x, z);
+    float x = a.getAxis(GameAction::MoveRight, kb);
+    float z = a.getAxis(GameAction::MoveForward, kb);
 
-	if (input.actions().isActionPressed(
-		GameAction::Jump,
-		input.keyboard()))
-	{
-		//player.jump();
-	}
+    //player.move(x, z);
+
+    if (a.isPressed(GameAction::Jump, kb))
+        //player.jump();
+
+    input.endFrame();
 }

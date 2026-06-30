@@ -2,6 +2,7 @@
 #include "../EngineCore/window.h"
 #include "../EngineCore/Graphics/renderer.h"
 #include "../EngineCore/logger.h"
+#include "engine_init.cpp"
 #include "game_input.hpp"
 
 int main() {
@@ -25,12 +26,15 @@ int main() {
 				exitCode = -1;
 			}
 			else {
-				//initGameInput();
+				GameInput input;
+				initEngine(window.getWindow(), input);
+				initGameInput(input);
+
 				while (!glfwWindowShouldClose(glfwWindow)) {
 					renderer.beginFrame(0.1f, 0.1f, 0.1f, 1.0f);
-					//GameInput::update();
 					// Game rendering code goes here
 
+					input.endFrame();
 					renderer.endFrame();
 					glfwPollEvents();
 				}

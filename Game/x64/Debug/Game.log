@@ -1,1 +1,145 @@
-﻿  Game.vcxproj -> C:\Users\Tristan\AppData\Roaming\GitHub\Game\x64\Debug\Game.exe
+﻿  engine_init.cpp
+  Game.cpp
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
+  (compiling source file 'engine_init.cpp')
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
+      the template instantiation context (the oldest one first) is
+          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\engine_init.cpp(7,24):
+          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
+  (compiling source file 'Game.cpp')
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
+      the template instantiation context (the oldest one first) is
+          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\engine_init.cpp(7,24):
+          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
+  
+  game_input.cpp
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
+  (compiling source file 'game_input.cpp')
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
+      the template instantiation context (the oldest one first) is
+          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(5,15):
+          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+  player_controller.cpp
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
+  (compiling source file 'player_controller.cpp')
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
+      the template instantiation context (the oldest one first) is
+          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(6,5):
+          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027: use of undefined type 'ActionMap<Action>'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:         with
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:         [
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:             Action=GameAction
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:         ]
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
+      see declaration of 'ActionMap<Action>'
+          with
+          [
+              Action=GameAction
+          ]
+  
+  Generating Code...

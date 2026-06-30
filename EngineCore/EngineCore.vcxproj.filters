@@ -54,9 +54,6 @@
     <ClInclude Include="action_map.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="input_manager.hpp">
-      <Filter>Input</Filter>
-    </ClInclude>
     <ClInclude Include="key_codes.hpp">
       <Filter>Input</Filter>
     </ClInclude>
@@ -65,6 +62,18 @@
     </ClInclude>
     <ClInclude Include="mouse.hpp">
       <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="input_event.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="input_queue.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="input_system.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="glfw_input.h">
+      <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

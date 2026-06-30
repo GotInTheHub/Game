@@ -1,9 +1,8 @@
-#include "input_manager.hpp"
-#include "key_codes.hpp"
-#include <GLFW/glfw3.h>
+#include "glfw_input.h"
+#include "input_event.hpp"
+#include "logger.h"
 
-template<typename Action>
-static InputManager<Action>* g_input = nullptr;
+static InputQueue* g_queue = nullptr;
 
 static Key convertKey(int glfwKey) {
 	switch (glfwKey)
@@ -20,20 +19,23 @@ static Key convertKey(int glfwKey) {
 	}
 }
 
-template<typename Action>
-void keyCallback(GLFWwindow*, int key, int, int action, int)
+static void keyCallback(GLFWwindow*, int key, int, int action, int)
 {
-	if (!g_input<Action>) return;
+	if (!g_queue) return;
 
-	g_input<Action>->onKey(
-		convertKey(key),
-		action != GLFW_RELEASE);
+	InputEvent e;
+	e.key = convertKey(key);
+	e.type = (action == GLFW_PRESS)
+		? InputEventType::KeyPressed
+		: InputEventType::KeyReleased;
+
+	Logger::debug(LogCategory::ENGINE, e.type == InputEventType::KeyPressed ? "Key Pressed" : "Key Released");
+	Logger::debug(LogCategory::ENGINE, "Key code: " + key);
 }
 
-template<typename Action>
-void initGLFWInput(GLFWwindow* window, InputManager<Action>& input)
+void initGLFWInput(GLFWwindow* window, InputQueue& queue)
 {
-	g_input<Action> = &input;
+	g_queue = &queue;
 
-	glfwSetKeyCallback(window, keyCallback<Action>);
+	glfwSetKeyCallback(window, keyCallback);
 }

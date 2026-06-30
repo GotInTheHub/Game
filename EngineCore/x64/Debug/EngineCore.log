@@ -1,5 +1,4 @@
 ﻿  glfw_input.cpp
-  renderer.cpp
-  window.cpp
+  keyboard.cpp
   Generating Code...
   EngineCore.vcxproj -> C:\Users\Tristan\AppData\Roaming\GitHub\Game\x64\Debug\EngineCore.lib

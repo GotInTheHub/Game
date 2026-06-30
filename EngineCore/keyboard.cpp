@@ -2,6 +2,10 @@
 
 void Keyboard::setKey(Key key, bool pressed)
 {
+	if (pressed && !m_current[(size_t)key]) {
+		m_pressedThisFrame[(size_t)key] = true;
+	}
+	
 	m_current[(size_t)key] = pressed;
 }
 
@@ -12,15 +16,10 @@ bool Keyboard::isDown(Key key) const
 
 bool Keyboard::wasPressed(Key key) const
 {
-	return m_current[(size_t)key] && !m_previous[(size_t)key];
+	return m_pressedThisFrame[(size_t)key];
 }
 
-bool Keyboard::wasReleased(Key key) const
+void Keyboard::endFrame()
 {
-	return !m_current[(size_t)key] && m_previous[(size_t)key];
-}
-
-void Keyboard::update()
-{
-	m_previous = m_current;
+	m_pressedThisFrame.fill(false);
 }

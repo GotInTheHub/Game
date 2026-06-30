@@ -155,9 +155,12 @@
   <ItemGroup>
     <ClInclude Include="action_map.hpp" />
     <ClInclude Include="config.hpp" />
+    <ClInclude Include="glfw_input.h" />
     <ClInclude Include="Graphics\graphics_context.h" />
     <ClInclude Include="Graphics\renderer.h" />
-    <ClInclude Include="input_manager.hpp" />
+    <ClInclude Include="input_event.hpp" />
+    <ClInclude Include="input_queue.hpp" />
+    <ClInclude Include="input_system.hpp" />
     <ClInclude Include="keyboard.hpp" />
     <ClInclude Include="key_codes.hpp" />
     <ClInclude Include="logger.h" />

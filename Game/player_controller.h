@@ -1,8 +1,8 @@
 #pragma once
-#include "../EngineCore/input_manager.hpp"
+#include "../EngineCore/input_system.hpp"
 #include "game_action.hpp"
 
 class PlayerController {
 public:
-	void update(InputManager<GameAction>& input);
+	void update(InputSystem<GameAction>& input);
 };

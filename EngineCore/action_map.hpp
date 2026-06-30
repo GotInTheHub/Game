@@ -1,7 +1,6 @@
 #pragma once
 #include "keyboard.hpp"
 #include <unordered_map>
-#include <utility>
 
 template<typename Action>
 class ActionMap {
@@ -15,33 +14,24 @@ public:
 		m_axes[axis] = std::make_pair(positiveKey, negativeKey);
 	}
 
-	bool isActionPressed(Action action, const Keyboard& keyboard) const {
-		auto it = m_actions.find(action);
-		if (it == m_actions.end())
-			return false;
-
-		return keyboard.wasPressed(it->second);
+	bool isPressed(Action action, const Keyboard& keyboard) const {
+		return keyboard.wasPressed(m_actions.at(action));
 	}
 
-	bool isActionReleased(Action action, const Keyboard& keyboard) const {
-		auto it = m_actions.find(action);
-		if (it == m_actions.end())
-			return false;
-
-		return keyboard.isDown(it->second);
+	bool isDown(Action action, const Keyboard& keyboard) const {
+		return keyboard.isDown(m_actions.at(action));
 	}
 
 	float getAxis(Action axis, const Keyboard& keyboard) const {
-		auto it = m_axes.find(axis);
-		if (it == m_axes.end())
-			return 0.0f;
+		
+		auto [pos, neg] = m_axes.at(axis);
 
 		float value = 0.0f;
 
-		if (keyboard.isDown(it->second.first))
+		if (keyboard.isDown(pos))
 			value += 1.0f;
 
-		if (keyboard.isDown(it->second.second))
+		if (keyboard.isDown(neg))
 			value -= 1.0f;
 
 		return value;

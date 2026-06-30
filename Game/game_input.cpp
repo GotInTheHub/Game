@@ -1,12 +1,13 @@
 #include "game_input.hpp"
-#include "game_action.hpp"
 
-void initGameInput(GameInput& input) {
+void initGameInput(GameInput& input)
+{
+    auto& a = input.actions();
 
-	input.actions().bindAction(GameAction::Jump, Key::Space);
-	input.actions().bindAction(GameAction::Shoot, Key::MouseLeft);
-	input.actions().bindAction(GameAction::Pause, Key::Escape);
-	
-	input.actions().bindAxis(GameAction::MoveForward, Key::W, Key::S);
-	input.actions().bindAxis(GameAction::MoveRight, Key::D, Key::A);
+    a.bindAction(GameAction::Jump, Key::Space);
+    a.bindAction(GameAction::Shoot, Key::MouseLeft);
+    a.bindAction(GameAction::Pause, Key::Escape);
+
+    a.bindAxis(GameAction::MoveForward, Key::W, Key::S);
+    a.bindAxis(GameAction::MoveRight, Key::D, Key::A);
 }

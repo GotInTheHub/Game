@@ -156,6 +156,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="engine_init.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="game_input.cpp" />
     <ClCompile Include="player_controller.cpp" />

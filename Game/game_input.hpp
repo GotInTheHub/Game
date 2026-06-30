@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../EngineCore/input_manager.hpp"
+#include "../EngineCore/input_system.hpp"
 #include "game_action.hpp"
 
-using GameInput = InputManager<GameAction>;
+using GameInput = InputSystem<GameAction>;
 
 void initGameInput(GameInput& input);
