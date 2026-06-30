@@ -1,5 +1,6 @@
 #include "renderer.h"
 #include <iostream>
+#include "../logger.h"
 
 Renderer::Renderer() : m_window(nullptr), m_initialized(false) {
 }
@@ -10,12 +11,12 @@ Renderer::~Renderer() {
 
 bool Renderer::initialize(GLFWwindow* window) {
 	if (m_initialized) {
-		std::cerr << "Renderer already initialized" << std::endl;
+		Logger::error(LogCategory::RENDER, "Renderer already initialized");
 		return false;
 	}
 
 	if (window == nullptr) {
-		std::cerr << "Window pointer is null" << std::endl;
+		Logger::error(LogCategory::RENDER, "Window pointer is null");
 		return false;
 	}
 
@@ -26,7 +27,7 @@ bool Renderer::initialize(GLFWwindow* window) {
 
 	// Initialize graphics context (loads GLAD)
 	if (!m_graphicsContext.initialize((GLADloadproc)glfwGetProcAddress)) {
-		std::cerr << "Failed to initialize graphics context" << std::endl;
+		Logger::error(LogCategory::RENDER, "Failed to initialize graphics context");
 		return false;
 	}
 
@@ -35,7 +36,7 @@ bool Renderer::initialize(GLFWwindow* window) {
 	glEnable(GL_DEPTH_TEST);
 
 	m_initialized = true;
-	std::cout << "Renderer initialized successfully" << std::endl;
+	Logger::info(LogCategory::RENDER, "Renderer initialized successfully");
 
 	return true;
 }
@@ -45,13 +46,13 @@ void Renderer::shutdown() {
 		m_graphicsContext.shutdown();
 		m_window = nullptr;
 		m_initialized = false;
-		std::cout << "Renderer shutdown" << std::endl;
+		Logger::info(LogCategory::RENDER, "Renderer shutdown");
 	}
 }
 
 void Renderer::beginFrame() {
 	if (!m_initialized) {
-		std::cerr << "Renderer not initialized" << std::endl;
+		Logger::error(LogCategory::RENDER, "Renderer not initialized");
 		return;
 	}
 
@@ -60,7 +61,7 @@ void Renderer::beginFrame() {
 
 void Renderer::endFrame() {
 	if (!m_initialized) {
-		std::cerr << "Renderer not initialized" << std::endl;
+		Logger::error(LogCategory::RENDER, "Renderer not initialized");
 		return;
 	}
 
@@ -70,7 +71,7 @@ void Renderer::endFrame() {
 
 void Renderer::clear(float r, float g, float b, float a) {
 	if (!m_initialized) {
-		std::cerr << "Renderer not initialized" << std::endl;
+		Logger::error(LogCategory::RENDER, "Renderer not initialized");
 		return;
 	}
 
