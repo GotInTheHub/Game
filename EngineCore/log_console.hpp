@@ -1,5 +1,5 @@
 #pragma once
-#include "../includes/imgui/imgui.h"
+#include <imgui.h>
 #include "logger.h"
 
 class LogConsole {
