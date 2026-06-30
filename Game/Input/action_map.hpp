@@ -7,37 +7,61 @@
 
 namespace Game
 {
-    template<typename Action>
+    template<typename TAction>
     class ActionMap
     {
     public:
-        void bind(Action a, Engine::Key k)
+        void bind(TAction action, Engine::Key key)
         {
-            m_map[a] = k;
+            m_keys[action] = key;
         }
 
-        void bindAxis(Action a, Engine::Key pos, Engine::Key neg)
+        void bindAxis(TAction action,
+            Engine::Key positive,
+            Engine::Key negative)
         {
-            m_axes[a] = { pos, neg };
+            m_axes[action] = { positive, negative };
         }
 
-        bool isPressed(Action a, const Engine::Keyboard& kb)
+        bool isPressed(TAction action,
+            const Engine::Keyboard& keyboard)
         {
-            return kb.isPressed(m_map[a]);
+            auto it = m_keys.find(action);
+            if (it == m_keys.end()) return false;
+
+            return keyboard.isPressed(it->second);
         }
 
-        float getAxis(Action a, const Engine::Keyboard& kb)
+        bool isDown(TAction action,
+            const Engine::Keyboard& keyboard)
         {
-            auto& [pos, neg] = m_axes[a];
+            auto it = m_keys.find(action);
+            if (it == m_keys.end()) return false;
 
-            float v = 0.0f;
-            if (kb.isDown(pos)) v += 1;
-            if (kb.isDown(neg)) v -= 1;
-            return v;
+            return keyboard.isDown(it->second);
+        }
+
+        float getAxis(TAction action,
+            const Engine::Keyboard& keyboard)
+        {
+            auto it = m_axes.find(action);
+            if (it == m_axes.end()) return 0.0f;
+
+            const auto& [pos, neg] = it->second;
+
+            float value = 0.0f;
+
+            if (keyboard.isDown(pos))
+                value += 1.0f;
+
+            if (keyboard.isDown(neg))
+                value -= 1.0f;
+
+            return value;
         }
 
     private:
-        std::unordered_map<Action, Engine::Key> m_map;
-        std::unordered_map<Action, std::pair<Engine::Key, Engine::Key>> m_axes;
+        std::unordered_map<TAction, Engine::Key> m_keys;
+        std::unordered_map<TAction, std::pair<Engine::Key, Engine::Key>> m_axes;
     };
 }

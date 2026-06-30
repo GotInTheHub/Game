@@ -2,9 +2,10 @@
 
 namespace Engine
 {
-    void InputSystem::update()
+    void InputSystem::beginFrame()
     {
-        // currently nothing here (GLFW feeds events externally)
+        m_keyboard.beginFrame();
+        m_mouse.beginFrame();
     }
 
     Keyboard& InputSystem::keyboard()
@@ -15,11 +16,5 @@ namespace Engine
     Mouse& InputSystem::mouse()
     {
         return m_mouse;
-    }
-
-    void InputSystem::endFrame()
-    {
-        m_keyboard.update();
-        m_mouse.update();
     }
 }

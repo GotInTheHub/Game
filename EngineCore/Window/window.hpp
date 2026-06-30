@@ -1,9 +1,6 @@
 #pragma once
-
-#include "../Input/keyboard.hpp"
-#include "../Input/mouse.hpp"
-
-struct GLFWwindow;
+#include <GLFW/glfw3.h>
+#include "../Input/input_system.hpp"
 
 namespace Engine
 {
@@ -18,16 +15,15 @@ namespace Engine
 
         bool shouldClose() const;
 
-        Keyboard& keyboard();
-        Mouse& mouse();
+		InputSystem& input();
+
+		void setInputSystem(InputSystem* input);
 
     private:
         void initCallbacks();
 
     private:
-        GLFWwindow* m_window;
-
-        Keyboard m_keyboard;
-        Mouse m_mouse;
+        GLFWwindow* m_window = nullptr;
+        InputSystem* m_input = nullptr;
     };
 }

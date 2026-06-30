@@ -1,11 +1,12 @@
 #include "engine.hpp"
-#include <GLFW/glfw3.h>
 
 namespace Engine
 {
     Engine::Engine(int width, int height, const char* title)
         : m_window(width, height, title)
-    {}
+    {
+		m_window.setInputSystem(&m_input);
+    }
 
     void Engine::beginFrame()
     {
@@ -14,8 +15,9 @@ namespace Engine
 
     void Engine::endFrame()
     {
-        m_window.keyboard().update();
-        m_window.mouse().update();
+        // CRITICAL:
+        // reset per-frame input states AFTER game logic
+        m_input.beginFrame();
 
         m_window.swapBuffers();
     }
@@ -28,5 +30,10 @@ namespace Engine
     Window& Engine::window()
     {
         return m_window;
+    }
+
+    InputSystem& Engine::input()
+    {
+        return m_input;
     }
 }

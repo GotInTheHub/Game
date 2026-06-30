@@ -1,3 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(551,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (EngineCore.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  player_controller.cpp
   game.cpp
+  Generating Code...
   Game.vcxproj -> C:\Users\Tristan\AppData\Roaming\GitHub\Game\x64\Debug\Game.exe

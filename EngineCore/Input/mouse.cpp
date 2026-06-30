@@ -5,17 +5,17 @@ namespace Engine
 {
     void Mouse::press(MouseButton b)
     {
-        size_t i = (size_t)b;
+        size_t i = static_cast<size_t>(b);
 
-        if (!m_current[i])
+        if (!m_down[i])
             m_pressed[i] = true;
 
-        m_current[i] = true;
+        m_down[i] = true;
     }
 
     void Mouse::release(MouseButton b)
     {
-        m_current[(size_t)b] = false;
+        m_down[static_cast<size_t>(b)] = false;
     }
 
     void Mouse::setPosition(float x, float y)
@@ -23,22 +23,26 @@ namespace Engine
         m_pos = { x, y };
     }
 
-    void Mouse::update()
+    void Mouse::beginFrame()
     {
-        m_delta = { m_pos.x - m_last.x, m_pos.y - m_last.y };
-        m_last = m_pos;
-
         m_pressed.fill(false);
+
+        m_delta = {
+            m_pos.x - m_last.x,
+            m_pos.y - m_last.y
+        };
+
+        m_last = m_pos;
     }
 
     bool Mouse::isDown(MouseButton b) const
     {
-        return m_current[(size_t)b];
+        return m_down[static_cast<size_t>(b)];
     }
 
     bool Mouse::isPressed(MouseButton b) const
     {
-        return m_pressed[(size_t)b];
+        return m_pressed[static_cast<size_t>(b)];
     }
 
     glm::vec2 Mouse::position() const { return m_pos; }

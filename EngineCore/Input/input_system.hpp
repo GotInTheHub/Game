@@ -8,12 +8,10 @@ namespace Engine
     class InputSystem
     {
     public:
-        void update();
+        void beginFrame();
 
         Keyboard& keyboard();
         Mouse& mouse();
-
-        void endFrame();
 
     private:
         Keyboard m_keyboard;

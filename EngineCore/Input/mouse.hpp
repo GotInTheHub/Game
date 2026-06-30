@@ -5,7 +5,13 @@
 
 namespace Engine
 {
-    enum class MouseButton { Left, Right, Middle, Count };
+    enum class MouseButton : uint8_t
+    {
+        Left,
+        Right,
+        Middle,
+        Count
+    };
 
     class Mouse
     {
@@ -14,7 +20,7 @@ namespace Engine
         void release(MouseButton b);
 
         void setPosition(float x, float y);
-        void update();
+        void beginFrame();
 
         bool isDown(MouseButton b) const;
         bool isPressed(MouseButton b) const;
@@ -23,7 +29,7 @@ namespace Engine
         glm::vec2 delta() const;
 
     private:
-        std::array<bool, 3> m_current{};
+        std::array<bool, 3> m_down{};
         std::array<bool, 3> m_pressed{};
 
         glm::vec2 m_pos{};

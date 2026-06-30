@@ -2,6 +2,7 @@
 
 #include "../Input/action_map.hpp"
 #include "../Input/game_action.hpp"
+#include "../../EngineCore/Input/keyboard.hpp"
 
 namespace Game
 {
@@ -13,5 +14,8 @@ namespace Game
 
         void jump();
         void move(float x, float z);
+
+    private:
+		float m_speed = 5.0f;
     };
 }

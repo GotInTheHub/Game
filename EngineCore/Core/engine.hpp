@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Window/window.hpp"
+#include "../Input/input_system.hpp"
 
 namespace Engine
 {
@@ -15,8 +16,10 @@ namespace Engine
         bool isRunning() const;
 
         Window& window();
+		InputSystem& input();
 
     private:
         Window m_window;
+		InputSystem m_input;
     };
 }
