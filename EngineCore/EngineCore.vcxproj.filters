@@ -39,6 +39,15 @@
     <ClInclude Include="openGL_error.h">
       <Filter>Debug</Filter>
     </ClInclude>
+    <ClInclude Include="log_entry.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="log_buffer.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="log_console.hpp">
+      <Filter>Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window.cpp">

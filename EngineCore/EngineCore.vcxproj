@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -153,19 +153,31 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="action_map.hpp" />
     <ClInclude Include="config.hpp" />
     <ClInclude Include="Graphics\graphics_context.h" />
     <ClInclude Include="Graphics\renderer.h" />
+    <ClInclude Include="input_manager.hpp" />
+    <ClInclude Include="keyboard.hpp" />
+    <ClInclude Include="key_codes.hpp" />
     <ClInclude Include="logger.h" />
+    <ClInclude Include="log_buffer.h" />
+    <ClInclude Include="log_console.hpp" />
+    <ClInclude Include="log_entry.h" />
+    <ClInclude Include="mouse.hpp" />
     <ClInclude Include="openGL_error.h" />
     <ClInclude Include="singleton.hpp" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="action_map.cpp" />
     <ClCompile Include="Graphics\glad.c" />
     <ClCompile Include="Graphics\graphics_context.cpp" />
     <ClCompile Include="Graphics\renderer.cpp" />
+    <ClCompile Include="input_manager.cpp" />
+    <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="logger.cpp" />
+    <ClCompile Include="mouse.cpp" />
     <ClCompile Include="openGL_error.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
