@@ -2,6 +2,7 @@
 #include "../EngineCore/window.h"
 #include "../EngineCore/Graphics/renderer.h"
 #include "../EngineCore/logger.h"
+#include "game_input.hpp"
 
 int main() {
 	if (!glfwInit()) {
@@ -24,9 +25,10 @@ int main() {
 				exitCode = -1;
 			}
 			else {
+				//initGameInput();
 				while (!glfwWindowShouldClose(glfwWindow)) {
 					renderer.beginFrame(0.1f, 0.1f, 0.1f, 1.0f);
-
+					//GameInput::update();
 					// Game rendering code goes here
 
 					renderer.endFrame();

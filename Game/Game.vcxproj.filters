@@ -13,10 +13,32 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{34f6f3f8-5d01-4cf7-93c1-fd048cc9f60d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="game_input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="player_controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game_action.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="player_controller.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="game_input.hpp">
+      <Filter>Input</Filter>
+    </None>
   </ItemGroup>
 </Project>

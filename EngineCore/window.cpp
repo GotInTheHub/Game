@@ -1,5 +1,6 @@
 #include "window.h"
 #include "logger.h"
+#include "glfw_input.cpp"
 
 int Window::setupWindow(std::string& windowName)
 {
@@ -16,7 +17,14 @@ int Window::setupWindow(std::string& windowName)
 
 	glfwMakeContextCurrent(m_window);
 
+	setupCallbacks();
+
 	return 0;
+}
+
+void Window::setupCallbacks()
+{
+	//glfwSetKeyCallback() inside glfw_input.cpp handles key input callbacks
 }
 
 Window::Window()

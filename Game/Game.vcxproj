@@ -158,9 +158,14 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="game_input.cpp" />
+    <ClCompile Include="player_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game_input.hpp" />
+    <ClInclude Include="game_action.hpp" />
+    <ClInclude Include="player_controller.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="game_input.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

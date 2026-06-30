@@ -16,7 +16,7 @@ private:
 
 	static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 	int setupWindow(std::string& name);
-
+	void setupCallbacks();
 public:
 	Window();
 	Window(int width, int height, const char* name);
