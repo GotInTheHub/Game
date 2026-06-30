@@ -1,7 +1,7 @@
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\glfw_input.cpp;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\glfw_input.obj
 C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\Graphics\glad.c;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\glad.obj
 C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\Graphics\graphics_context.cpp;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\graphics_context.obj
 C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\Graphics\renderer.cpp;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\renderer.obj
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.cpp;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\input_system.obj
 C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\keyboard.cpp;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\keyboard.obj
 C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\logger.cpp;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\logger.obj
 C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\mouse.cpp;C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\x64\Debug\mouse.obj

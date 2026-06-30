@@ -48,13 +48,10 @@
     <ClInclude Include="log_console.hpp">
       <Filter>Debug</Filter>
     </ClInclude>
-    <ClInclude Include="window.h">
+    <ClInclude Include="window.hpp">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="action_map.hpp">
-      <Filter>Input</Filter>
-    </ClInclude>
-    <ClInclude Include="key_codes.hpp">
+    <ClInclude Include="key.hpp">
       <Filter>Input</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.hpp">
@@ -63,17 +60,8 @@
     <ClInclude Include="mouse.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="input_event.hpp">
-      <Filter>Input</Filter>
-    </ClInclude>
-    <ClInclude Include="input_queue.hpp">
-      <Filter>Input</Filter>
-    </ClInclude>
     <ClInclude Include="input_system.hpp">
       <Filter>Input</Filter>
-    </ClInclude>
-    <ClInclude Include="glfw_input.h">
-      <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +89,8 @@
     <ClCompile Include="mouse.cpp">
       <Filter>Input</Filter>
     </ClCompile>
-    <ClCompile Include="glfw_input.cpp">
-      <Filter>Window</Filter>
+    <ClCompile Include="input_system.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

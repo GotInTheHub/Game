@@ -1,145 +1,104 @@
 ﻿  engine_init.cpp
   Game.cpp
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(6,19): error C2187: syntax error: 'newline' was unexpected here
   (compiling source file 'engine_init.cpp')
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
-      the template instantiation context (the oldest one first) is
-          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\engine_init.cpp(7,24):
-          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
-  (compiling source file 'Game.cpp')
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
-      the template instantiation context (the oldest one first) is
-          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\engine_init.cpp(7,24):
-          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,6): error C2182: 'initGameInput': this use of 'void' is not valid
+  (compiling source file 'engine_init.cpp')
   
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,20): error C2065: 'GameInput': undeclared identifier
+  (compiling source file 'engine_init.cpp')
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,31): error C2065: 'input': undeclared identifier
+  (compiling source file 'engine_init.cpp')
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\engine_init.cpp(2,10): error C1083: Cannot open include file: '../EngineCore/glfw_input.h': No such file or directory
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\Game.cpp(2,10): error C1083: Cannot open include file: '../EngineCore/window.h': No such file or directory
   game_input.cpp
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(6,19): error C2187: syntax error: 'newline' was unexpected here
   (compiling source file 'game_input.cpp')
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
-      the template instantiation context (the oldest one first) is
-          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(5,15):
-          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,6): error C2182: 'initGameInput': this use of 'void' is not valid
+  (compiling source file 'game_input.cpp')
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,20): error C2065: 'GameInput': undeclared identifier
+  (compiling source file 'game_input.cpp')
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,31): error C2065: 'input': undeclared identifier
+  (compiling source file 'game_input.cpp')
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(3,6): error C2182: 'initGameInput': this use of 'void' is not valid
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(3,6): error C2374: 'initGameInput': redefinition; multiple initialization
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,6):
+      see declaration of 'initGameInput'
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(3,6): error C2086: 'int initGameInput': redefinition
+      C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,6):
+      see declaration of 'initGameInput'
   
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(3,20): error C2065: 'GameInput': undeclared identifier
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(3,31): error C2065: 'input': undeclared identifier
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(4,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(5,15): error C2065: 'input': undeclared identifier
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(5,13): error C2530: 'a': references must be initialized
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,6): error C3484: syntax error: expected '->' before the return type
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,7): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,5): error C2040: 'a': 'int' differs in levels of indirection from 'auto &'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,7): error C2146: syntax error: missing ';' before identifier 'bindAction'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(7,36): error C2653: 'Key': is not a class or namespace name
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,6): error C3484: syntax error: expected '->' before the return type
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,7): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,5): error C2040: 'a': 'int' differs in levels of indirection from 'auto &'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,7): error C2146: syntax error: missing ';' before identifier 'bindAction'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(8,37): error C2653: 'Key': is not a class or namespace name
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,6): error C3484: syntax error: expected '->' before the return type
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,7): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,5): error C2040: 'a': 'int' differs in levels of indirection from 'auto &'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,7): error C2146: syntax error: missing ';' before identifier 'bindAction'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(9,37): error C2653: 'Key': is not a class or namespace name
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,6): error C3484: syntax error: expected '->' before the return type
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,7): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,5): error C2040: 'a': 'int' differs in levels of indirection from 'auto &'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,7): error C2146: syntax error: missing ';' before identifier 'bindAxis'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,41): error C2653: 'Key': is not a class or namespace name
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(11,49): error C2653: 'Key': is not a class or namespace name
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,6): error C3484: syntax error: expected '->' before the return type
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,7): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,5): error C2040: 'a': 'int' differs in levels of indirection from 'auto &'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,7): error C2146: syntax error: missing ';' before identifier 'bindAxis'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,39): error C2653: 'Key': is not a class or namespace name
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(12,47): error C2653: 'Key': is not a class or namespace name
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(13,1): error C2059: syntax error: '}'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.cpp(13,1): error C2143: syntax error: missing ';' before '}'
   player_controller.cpp
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079: 'InputSystem<GameAction>::m_actions' uses undefined class 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20): error C2079:         ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.h(7,14): error C7568: argument list missing after assumed function template 'InputSystem'
   (compiling source file 'player_controller.cpp')
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(14,20):
-      the template instantiation context (the oldest one first) is
-          C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(6,5):
-          see reference to class template instantiation 'InputSystem<GameAction>' being compiled
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(6,19): error C2187: syntax error: 'newline' was unexpected here
+  (compiling source file 'player_controller.cpp')
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(12,15): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,6): error C2182: 'initGameInput': this use of 'void' is not valid
+  (compiling source file 'player_controller.cpp')
   
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027: use of undefined type 'ActionMap<Action>'
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:         with
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:         [
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:             Action=GameAction
-C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(16,9): error C2027:         ]
-      C:\Users\Tristan\AppData\Roaming\GitHub\Game\EngineCore\input_system.hpp(7,7):
-      see declaration of 'ActionMap<Action>'
-          with
-          [
-              Action=GameAction
-          ]
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,20): error C2065: 'GameInput': undeclared identifier
+  (compiling source file 'player_controller.cpp')
   
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\game_input.hpp(8,31): error C2065: 'input': undeclared identifier
+  (compiling source file 'player_controller.cpp')
+  
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(4,31): error C7568: argument list missing after assumed function template 'InputSystem'
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(8,14): error C2530: 'kb': references must be initialized
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(9,13): error C2530: 'a': references must be initialized
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,15): error C3536: 'a': cannot be used before it is initialized
+C:\Users\Tristan\AppData\Roaming\GitHub\Game\Game\player_controller.cpp(11,48): error C3536: 'kb': cannot be used before it is initialized
   Generating Code...

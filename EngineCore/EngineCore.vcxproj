@@ -153,16 +153,12 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="action_map.hpp" />
     <ClInclude Include="config.hpp" />
-    <ClInclude Include="glfw_input.h" />
     <ClInclude Include="Graphics\graphics_context.h" />
     <ClInclude Include="Graphics\renderer.h" />
-    <ClInclude Include="input_event.hpp" />
-    <ClInclude Include="input_queue.hpp" />
     <ClInclude Include="input_system.hpp" />
+    <ClInclude Include="key.hpp" />
     <ClInclude Include="keyboard.hpp" />
-    <ClInclude Include="key_codes.hpp" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="log_buffer.h" />
     <ClInclude Include="log_console.hpp" />
@@ -170,13 +166,13 @@
     <ClInclude Include="mouse.hpp" />
     <ClInclude Include="openGL_error.h" />
     <ClInclude Include="singleton.hpp" />
-    <ClInclude Include="window.h" />
+    <ClInclude Include="window.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="glfw_input.cpp" />
     <ClCompile Include="Graphics\glad.c" />
     <ClCompile Include="Graphics\graphics_context.cpp" />
     <ClCompile Include="Graphics\renderer.cpp" />
+    <ClCompile Include="input_system.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="logger.cpp" />
     <ClCompile Include="mouse.cpp" />

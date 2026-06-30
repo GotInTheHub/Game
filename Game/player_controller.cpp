@@ -1,5 +1,5 @@
 #include "player_controller.h"
-#include "game_input.hpp"
+#include "./Input/game_input.hpp"
 
 void PlayerController::update(InputSystem<GameAction>& input)
 {

@@ -1,6 +1,6 @@
 #include "renderer.h"
 #include <iostream>
-#include "../logger.h"
+#include "../Debug/logger.h"
 
 Renderer::Renderer() : m_window(nullptr), m_initialized(false) {
 }
