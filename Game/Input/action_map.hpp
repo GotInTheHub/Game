@@ -1,64 +1,43 @@
 #pragma once
 
-#include "../../EngineCore/Input/keyboard.hpp"
-#include "../../EngineCore/Input/mouse.hpp"
-
 #include <unordered_map>
 #include <utility>
 
+#include "../EngineCore/Input/keyboard.hpp"
+
 namespace Game
 {
-	template<typename Action>
-	class ActionMap
-	{
-	private:
-		std::unordered_map<Action, Engine::Key> m_actions;
-		std::unordered_map<Action, std::pair<Engine::Key, Engine::Key>> m_axes;
+    template<typename Action>
+    class ActionMap
+    {
+    public:
+        void bind(Action a, Engine::Key k)
+        {
+            m_map[a] = k;
+        }
 
-	public:
-		void bind(Action action, Engine::Key key)
-		{
-			m_actions[action] = key;
-		}
+        void bindAxis(Action a, Engine::Key pos, Engine::Key neg)
+        {
+            m_axes[a] = { pos, neg };
+        }
 
-		void bindAxis(Action action, Engine::Key positive, Engine::Key negative)
-		{
-			m_axes[action] = std::make_pair(positive, negative);
-		}
+        bool isPressed(Action a, const Engine::Keyboard& kb)
+        {
+            return kb.isPressed(m_map[a]);
+        }
 
-		bool isPressed(Action action, const Engine::Keyboard& kb) const
-		{
-			auto it = m_actions.find(action);
-			if (it == m_actions.end())
-				return false;
+        float getAxis(Action a, const Engine::Keyboard& kb)
+        {
+            auto& [pos, neg] = m_axes[a];
 
-			return kb.isPressed(it->second);
-		}
+            float v = 0.0f;
+            if (kb.isDown(pos)) v += 1;
+            if (kb.isDown(neg)) v -= 1;
+            return v;
+        }
 
-		bool isDown(Action action, const Engine::Keyboard& kb) const
-		{
-			auto it = m_actions.find(action);
-			if (it == m_actions.end())
-				return false;
-		
-			return kb.isDown(it->second);
-		}
-
-		float getAxis(Action action, const Engine::Keyboard& kb) const
-		{
-			auto it = m_axes.find(action);
-			if(it == m_axes.end())
-				return 0.0f;
-
-			float value = 0.0f;
-
-			if (kb.isDown(it->second.first))
-				value += 1.0f;
-
-			if (kb.isDown(it->second.second))
-				value -= 1.0f;
-
-			return value;
-		}
-	};
+    private:
+        std::unordered_map<Action, Engine::Key> m_map;
+        std::unordered_map<Action, std::pair<Engine::Key, Engine::Key>> m_axes;
+    };
 }

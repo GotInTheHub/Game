@@ -2,13 +2,11 @@
 
 namespace Game
 {
-    enum class Action
+    enum class GameAction
     {
         MoveForward,
         MoveRight,
-
         Jump,
-        Shoot,
-        Pause
+        Shoot
     };
 }

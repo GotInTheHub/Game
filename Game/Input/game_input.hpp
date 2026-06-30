@@ -8,10 +8,10 @@ namespace Game
 	class GameInput
 	{
 	private:
-		ActionMap<Action> m_actions;
+		ActionMap<GameAction> m_actions;
 
 	public:
-		ActionMap<Action>& actions()
+		ActionMap<GameAction>& actions()
 		{
 			return m_actions;
 		}

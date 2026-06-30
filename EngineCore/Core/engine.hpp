@@ -2,12 +2,6 @@
 
 #include "../Window/window.hpp"
 
-namespace Game
-{
-    class GameInput;
-    class PlayerController;
-}
-
 namespace Engine
 {
     class Engine
@@ -15,17 +9,14 @@ namespace Engine
     public:
         Engine(int width, int height, const char* title);
 
-        void run();
+        void beginFrame();
+        void endFrame();
 
-    private:
-        void update(float dt);
-        void render();
+        bool isRunning() const;
+
+        Window& window();
 
     private:
         Window m_window;
-
-        // Game layer
-        Game::GameInput* m_gameInput = nullptr;
-        Game::PlayerController* m_player = nullptr;
     };
 }

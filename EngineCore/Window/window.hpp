@@ -1,8 +1,9 @@
 #pragma once
 
-struct GLFWwindow;
+#include "../Input/keyboard.hpp"
+#include "../Input/mouse.hpp"
 
-#include "../Input/input_system.hpp"
+struct GLFWwindow;
 
 namespace Engine
 {
@@ -13,15 +14,20 @@ namespace Engine
         ~Window();
 
         void pollEvents();
-		void swapBuffers();
+        void swapBuffers();
+
         bool shouldClose() const;
 
-        InputSystem& input();
+        Keyboard& keyboard();
+        Mouse& mouse();
 
     private:
         void initCallbacks();
 
+    private:
         GLFWwindow* m_window;
-        InputSystem m_input;
+
+        Keyboard m_keyboard;
+        Mouse m_mouse;
     };
 }

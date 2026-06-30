@@ -1,73 +1,46 @@
 #include "mouse.hpp"
+#include <glm/glm.hpp>
 
 namespace Engine
 {
-    Mouse::Mouse()
+    void Mouse::press(MouseButton b)
     {
-        m_buttons.fill(ButtonState::Up);
+        size_t i = (size_t)b;
+
+        if (!m_current[i])
+            m_pressed[i] = true;
+
+        m_current[i] = true;
     }
 
-    void Mouse::press(MouseButton button)
+    void Mouse::release(MouseButton b)
     {
-        auto& state = m_buttons[static_cast<size_t>(button)];
-
-        if (state == ButtonState::Up || state == ButtonState::Released)
-            state = ButtonState::Pressed;
-    }
-
-    void Mouse::release(MouseButton button)
-    {
-        m_buttons[static_cast<size_t>(button)] = ButtonState::Released;
+        m_current[(size_t)b] = false;
     }
 
     void Mouse::setPosition(float x, float y)
     {
-        m_delta = { x - m_position.x, y - m_position.y };
-        m_position = { x, y };
-    }
-
-    void Mouse::setDelta(float dx, float dy)
-    {
-        m_delta = { dx, dy };
+        m_pos = { x, y };
     }
 
     void Mouse::update()
     {
-        for (auto& state : m_buttons)
-        {
-            if (state == ButtonState::Pressed)
-                state = ButtonState::Down;
+        m_delta = { m_pos.x - m_last.x, m_pos.y - m_last.y };
+        m_last = m_pos;
 
-            else if (state == ButtonState::Released)
-                state = ButtonState::Up;
-        }
-
-        m_delta = { 0.0f, 0.0f };
+        m_pressed.fill(false);
     }
 
-    bool Mouse::isDown(MouseButton button) const
+    bool Mouse::isDown(MouseButton b) const
     {
-        auto state = m_buttons[static_cast<size_t>(button)];
-        return state == ButtonState::Down || state == ButtonState::Pressed;
+        return m_current[(size_t)b];
     }
 
-    bool Mouse::isPressed(MouseButton button) const
+    bool Mouse::isPressed(MouseButton b) const
     {
-        return m_buttons[static_cast<size_t>(button)] == ButtonState::Pressed;
+        return m_pressed[(size_t)b];
     }
 
-    bool Mouse::isReleased(MouseButton button) const
-    {
-        return m_buttons[static_cast<size_t>(button)] == ButtonState::Released;
-    }
-
-    Vec2 Mouse::position() const
-    {
-        return m_position;
-    }
-
-    Vec2 Mouse::delta() const
-    {
-        return m_delta;
-    }
+    glm::vec2 Mouse::position() const { return m_pos; }
+    glm::vec2 Mouse::delta() const { return m_delta; }
 }

@@ -5,43 +5,42 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{34f6f3f8-5d01-4cf7-93c1-fd048cc9f60d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{68b43c12-f4e6-4f80-9ad0-15f629c2f297}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="game_input.cpp">
+    <ClCompile Include="Input\game_input.cpp">
       <Filter>Input</Filter>
     </ClCompile>
-    <ClCompile Include="player_controller.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Player\player_controller.cpp">
+      <Filter>Player</Filter>
     </ClCompile>
-    <ClCompile Include="engine_init.cpp">
+    <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game_action.hpp">
+    <ClInclude Include="Input\game_action.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="player_controller.h">
+    <ClInclude Include="Input\game_input.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\action_map.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\player_controller.hpp">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="game.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="game_input.hpp">
-      <Filter>Input</Filter>
-    </None>
   </ItemGroup>
 </Project>

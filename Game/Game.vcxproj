@@ -156,17 +156,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="engine_init.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="game_input.cpp" />
-    <ClCompile Include="player_controller.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Input\game_input.cpp" />
+    <ClCompile Include="Player\player_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game_action.hpp" />
-    <ClInclude Include="player_controller.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="game_input.hpp" />
+    <ClInclude Include="game.hpp" />
+    <ClInclude Include="Input\action_map.hpp" />
+    <ClInclude Include="Input\game_action.hpp" />
+    <ClInclude Include="Input\game_input.hpp" />
+    <ClInclude Include="Player\player_controller.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
