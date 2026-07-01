@@ -13,9 +13,6 @@ namespace Game
 
         if (x != 0.0f || z != 0.0f) {
             move(x, z);
-
-		    std::string logMessage = "PlayerController::update() called with x: " + std::to_string(x) + ", z: " + std::to_string(z);
-		    Logger::debug(LogCategory::GAMEPLAY, logMessage.c_str());
         }
 
         if (input.isPressed(GameAction::Jump, kb))
