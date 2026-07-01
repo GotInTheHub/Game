@@ -11,6 +11,9 @@
     <Filter Include="Player">
       <UniqueIdentifier>{68b43c12-f4e6-4f80-9ad0-15f629c2f297}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{480f8874-0b9b-4c53-b0d5-037912f951bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,5 +45,8 @@
     <ClInclude Include="game.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\code_conventions.txt" />
   </ItemGroup>
 </Project>

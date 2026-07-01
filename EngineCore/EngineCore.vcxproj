@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -72,11 +72,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;$(IncludePath)</IncludePath>
+    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>../lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;$(IncludePath)</IncludePath>
+    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>../lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -154,36 +154,36 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Core\application.hpp" />
-    <ClInclude Include="Core\engine.hpp" />
-    <ClInclude Include="Debug\logger.h" />
-    <ClInclude Include="Debug\log_buffer.h" />
-    <ClInclude Include="Debug\log_console.hpp" />
-    <ClInclude Include="Debug\log_entry.h" />
-    <ClInclude Include="Debug\openGL_error.h" />
-    <ClInclude Include="Graphics\graphics_context.h" />
-    <ClInclude Include="Graphics\renderer.h" />
-    <ClInclude Include="Input\input_system.hpp" />
-    <ClInclude Include="Input\key.hpp" />
-    <ClInclude Include="Input\keyboard.hpp" />
-    <ClInclude Include="Input\mouse.hpp" />
-    <ClInclude Include="System\config.hpp" />
-    <ClInclude Include="System\singleton.hpp" />
-    <ClInclude Include="Window\key_translate.hpp" />
-    <ClInclude Include="Window\window.hpp" />
+    <ClInclude Include="Engine\Core\application.hpp" />
+    <ClInclude Include="Engine\Core\engine.hpp" />
+    <ClInclude Include="Engine\Debug\logger.h" />
+    <ClInclude Include="Engine\Debug\log_buffer.h" />
+    <ClInclude Include="Engine\Debug\log_console.hpp" />
+    <ClInclude Include="Engine\Debug\log_entry.h" />
+    <ClInclude Include="Engine\Debug\openGL_error.h" />
+    <ClInclude Include="Engine\Graphics\graphics_context.h" />
+    <ClInclude Include="Engine\Graphics\renderer.h" />
+    <ClInclude Include="Engine\Input\input_system.hpp" />
+    <ClInclude Include="Engine\Input\key.hpp" />
+    <ClInclude Include="Engine\Input\keyboard.hpp" />
+    <ClInclude Include="Engine\Input\mouse.hpp" />
+    <ClInclude Include="Engine\System\config.hpp" />
+    <ClInclude Include="Engine\System\singleton.hpp" />
+    <ClInclude Include="Engine\Window\key_translate.hpp" />
+    <ClInclude Include="Engine\Window\window.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\application.cpp" />
-    <ClCompile Include="Core\engine.cpp" />
-    <ClCompile Include="Debug\logger.cpp" />
-    <ClCompile Include="Debug\openGL_error.cpp" />
-    <ClCompile Include="Graphics\glad.c" />
-    <ClCompile Include="Graphics\graphics_context.cpp" />
-    <ClCompile Include="Graphics\renderer.cpp" />
-    <ClCompile Include="Input\input_system.cpp" />
-    <ClCompile Include="Input\keyboard.cpp" />
-    <ClCompile Include="Input\mouse.cpp" />
-    <ClCompile Include="Window\window.cpp" />
+    <ClCompile Include="Engine\Core\application.cpp" />
+    <ClCompile Include="Engine\Core\engine.cpp" />
+    <ClCompile Include="Engine\Debug\logger.cpp" />
+    <ClCompile Include="Engine\Debug\openGL_error.cpp" />
+    <ClCompile Include="Engine\Graphics\glad.c" />
+    <ClCompile Include="Engine\Graphics\graphics_context.cpp" />
+    <ClCompile Include="Engine\Graphics\renderer.cpp" />
+    <ClCompile Include="Engine\Input\input_system.cpp" />
+    <ClCompile Include="Engine\Input\keyboard.cpp" />
+    <ClCompile Include="Engine\Input\mouse.cpp" />
+    <ClCompile Include="Engine\Window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="code_conventions.txt" />

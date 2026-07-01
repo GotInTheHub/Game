@@ -2,7 +2,7 @@
 
 #include "../Input/action_map.hpp"
 #include "../Input/game_action.hpp"
-#include "../../EngineCore/Input/keyboard.hpp"
+#include <Engine/Input/keyboard.hpp>
 
 namespace Game
 {

@@ -24,91 +24,91 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graphics\renderer.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\graphics_context.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Window\window.hpp">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="System\config.hpp">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\singleton.hpp">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\engine.hpp">
+    <ClInclude Include="Engine\Core\application.hpp">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Input\input_system.hpp">
+    <ClInclude Include="Engine\Core\engine.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\log_buffer.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\log_console.hpp">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\log_entry.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\logger.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\openGL_error.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\graphics_context.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\renderer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input\input_system.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Input\key.hpp">
+    <ClInclude Include="Engine\Input\key.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Input\keyboard.hpp">
+    <ClInclude Include="Engine\Input\keyboard.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Input\mouse.hpp">
+    <ClInclude Include="Engine\Input\mouse.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Debug\log_buffer.h">
-      <Filter>Debug</Filter>
+    <ClInclude Include="Engine\System\config.hpp">
+      <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="Debug\log_console.hpp">
-      <Filter>Debug</Filter>
+    <ClInclude Include="Engine\System\singleton.hpp">
+      <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="Debug\log_entry.h">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug\logger.h">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug\openGL_error.h">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Window\key_translate.hpp">
+    <ClInclude Include="Engine\Window\key_translate.hpp">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="Core\application.hpp">
-      <Filter>Core</Filter>
+    <ClInclude Include="Engine\Window\window.hpp">
+      <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Graphics\renderer.cpp">
+    <ClCompile Include="Engine\Core\application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\engine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Debug\logger.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Debug\openGL_error.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\graphics_context.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\graphics_context.cpp">
+    <ClCompile Include="Engine\Graphics\renderer.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\glad.c">
+    <ClCompile Include="Engine\Graphics\glad.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window\window.cpp">
+    <ClCompile Include="Engine\Input\input_system.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Input\keyboard.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Input\mouse.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Window\window.cpp">
       <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\engine.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Input\input_system.cpp">
-      <Filter>Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Input\keyboard.cpp">
-      <Filter>Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Input\mouse.cpp">
-      <Filter>Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug\logger.cpp">
-      <Filter>Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug\openGL_error.cpp">
-      <Filter>Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\application.cpp">
-      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

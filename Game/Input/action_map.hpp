@@ -2,8 +2,7 @@
 
 #include <unordered_map>
 #include <utility>
-
-#include "../EngineCore/Input/keyboard.hpp"
+#include <Engine/Input/keyboard.hpp>
 
 namespace Game
 {

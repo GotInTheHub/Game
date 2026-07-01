@@ -1,6 +1,7 @@
 #include "player_controller.hpp"
 #include <iostream>
-#include "../../EngineCore/Debug/logger.h"
+#include <Engine/Debug/logger.h>
+#include <Engine/Input/keyboard.hpp>
 
 namespace Game
 {
@@ -21,10 +22,10 @@ namespace Game
 
     void PlayerController::jump()
     {
-		Logger::info(LogCategory::GAMEPLAY, "Player jumped!");
+		Engine::Logger::info(Engine::LogCategory::GAMEPLAY, "Player jumped!");
     }
     void PlayerController::move(float, float)
     {
-		Logger::info(LogCategory::GAMEPLAY, "Player moved!");
+		Engine::Logger::info(Engine::LogCategory::GAMEPLAY, "Player moved!");
     }
 }
