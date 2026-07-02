@@ -156,11 +156,14 @@
   <ItemGroup>
     <ClInclude Include="Engine\Core\application.hpp" />
     <ClInclude Include="Engine\Core\engine.hpp" />
-    <ClInclude Include="Engine\Debug\logger.h" />
-    <ClInclude Include="Engine\Debug\log_buffer.h" />
-    <ClInclude Include="Engine\Debug\log_console.hpp" />
-    <ClInclude Include="Engine\Debug\log_entry.h" />
-    <ClInclude Include="Engine\Debug\openGL_error.h" />
+    <ClInclude Include="Engine\Debug\Console\console.h" />
+    <ClInclude Include="Engine\Debug\Console\console_command.h" />
+    <ClInclude Include="Engine\Debug\Console\console_command_registry.hpp" />
+    <ClInclude Include="Engine\Debug\Logger\logger.h" />
+    <ClInclude Include="Engine\Debug\Logger\log_buffer.h" />
+    <ClInclude Include="Engine\Debug\Logger\log_console.hpp" />
+    <ClInclude Include="Engine\Debug\Logger\log_entry.h" />
+    <ClInclude Include="Engine\Debug\Logger\openGL_error.h" />
     <ClInclude Include="Engine\Graphics\graphics_context.h" />
     <ClInclude Include="Engine\Graphics\renderer.h" />
     <ClInclude Include="Engine\Input\input_system.hpp" />
@@ -175,8 +178,9 @@
   <ItemGroup>
     <ClCompile Include="Engine\Core\application.cpp" />
     <ClCompile Include="Engine\Core\engine.cpp" />
-    <ClCompile Include="Engine\Debug\logger.cpp" />
-    <ClCompile Include="Engine\Debug\openGL_error.cpp" />
+    <ClCompile Include="Engine\Debug\Console\console.cpp" />
+    <ClCompile Include="Engine\Debug\Logger\logger.cpp" />
+    <ClCompile Include="Engine\Debug\Logger\openGL_error.cpp" />
     <ClCompile Include="Engine\Graphics\glad.c" />
     <ClCompile Include="Engine\Graphics\graphics_context.cpp" />
     <ClCompile Include="Engine\Graphics\renderer.cpp" />

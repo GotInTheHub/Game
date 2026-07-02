@@ -22,6 +22,12 @@
     <Filter Include="Core">
       <UniqueIdentifier>{5adba8a4-5a32-4f27-b768-04a4007ca6b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Debug\Logger">
+      <UniqueIdentifier>{338fcc53-7bcb-4b04-acb3-1bed341c4612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug\Console">
+      <UniqueIdentifier>{dc470619-b73b-42a7-8232-10b22e6e8903}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Core\application.hpp">
@@ -29,21 +35,6 @@
     </ClInclude>
     <ClInclude Include="Engine\Core\engine.hpp">
       <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Debug\log_buffer.h">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Debug\log_console.hpp">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Debug\log_entry.h">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Debug\logger.h">
-      <Filter>Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Debug\openGL_error.h">
-      <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Graphics\graphics_context.h">
       <Filter>Graphics</Filter>
@@ -75,6 +66,30 @@
     <ClInclude Include="Engine\Window\window.hpp">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Debug\Logger\log_buffer.h">
+      <Filter>Debug\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\Logger\log_console.hpp">
+      <Filter>Debug\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\Logger\log_entry.h">
+      <Filter>Debug\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\Logger\logger.h">
+      <Filter>Debug\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\Logger\openGL_error.h">
+      <Filter>Debug\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\Console\console_command.h">
+      <Filter>Debug\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\Console\console.h">
+      <Filter>Debug\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Debug\Console\console_command_registry.hpp">
+      <Filter>Debug\Console</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Core\application.cpp">
@@ -82,12 +97,6 @@
     </ClCompile>
     <ClCompile Include="Engine\Core\engine.cpp">
       <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Debug\logger.cpp">
-      <Filter>Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Debug\openGL_error.cpp">
-      <Filter>Debug</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Graphics\graphics_context.cpp">
       <Filter>Graphics</Filter>
@@ -109,6 +118,15 @@
     </ClCompile>
     <ClCompile Include="Engine\Window\window.cpp">
       <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Debug\Logger\logger.cpp">
+      <Filter>Debug\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Debug\Logger\openGL_error.cpp">
+      <Filter>Debug\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Debug\Console\console.cpp">
+      <Filter>Debug\Console</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

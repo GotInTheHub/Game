@@ -1,6 +1,6 @@
 #include "player_controller.hpp"
 #include <iostream>
-#include <Engine/Debug/logger.h>
+#include <Engine/Debug/Logger/logger.h>
 #include <Engine/Input/keyboard.hpp>
 
 namespace Game
