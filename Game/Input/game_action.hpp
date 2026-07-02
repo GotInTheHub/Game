@@ -7,6 +7,7 @@ namespace Game
         MoveForward,
         MoveRight,
         Jump,
-        Shoot
+        Shoot,
+        Exit
     };
 }

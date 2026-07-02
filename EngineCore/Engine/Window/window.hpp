@@ -14,6 +14,7 @@ namespace Engine
         void swapBuffers();
 
         bool shouldClose() const;
+        void close();
 
 		InputSystem& input();
 

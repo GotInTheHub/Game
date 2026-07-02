@@ -14,6 +14,7 @@ namespace Engine
         void endFrame();
 
         bool isRunning() const;
+        void quit();
 
         Window& window();
 		InputSystem& input();

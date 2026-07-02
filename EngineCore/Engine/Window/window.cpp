@@ -86,6 +86,11 @@ namespace Engine
         return glfwWindowShouldClose(m_window);
     }
 
+    void Window::close()
+    {
+        glfwSetWindowShouldClose(m_window, GLFW_TRUE);
+    }
+
     InputSystem& Window::input()
     {
 		return *m_input;

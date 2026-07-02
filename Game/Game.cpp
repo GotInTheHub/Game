@@ -6,7 +6,8 @@ namespace Game
     {
         m_controls.bind(GameAction::Jump, Engine::Key::Space);
         m_controls.bind(GameAction::Shoot, Engine::Key::Escape);
-        
+		m_controls.bind(GameAction::Exit, Engine::Key::Escape);
+
         m_controls.bindAxis(GameAction::MoveForward,
             Engine::Key::W,
             Engine::Key::S);
@@ -21,11 +22,17 @@ namespace Game
         auto& kb = engine.input().keyboard();
 
         m_player.update(m_controls, kb);
+
+		if (m_controls.isPressed(GameAction::Exit, kb))
+		{
+			engine.quit();
+		}
     }
 
     void Game::render(Engine::Engine&)
     {}
 
     void Game::shutdown()
-    {}
+    {
+    }
 }

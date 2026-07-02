@@ -27,6 +27,11 @@ namespace Engine
         return !m_window.shouldClose();
     }
 
+    void Engine::quit()
+    {
+        m_window.close();
+    }
+
     Window& Engine::window()
     {
         return m_window;
