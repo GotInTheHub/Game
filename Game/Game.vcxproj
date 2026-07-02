@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;$(IncludePath)</IncludePath>
+    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;..\EngineCore;$(IncludePath)</IncludePath>
     <LibraryPath>../lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;$(IncludePath)</IncludePath>
+    <IncludePath>../includes;../includes/freetype2;../includes/imgui;../includes/imgui/backends;..\EngineCore;$(IncludePath)</IncludePath>
     <LibraryPath>../lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -120,6 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +141,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,14 +153,28 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Input\game_input.cpp" />
+    <ClCompile Include="Player\player_controller.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.hpp" />
+    <ClInclude Include="Input\action_map.hpp" />
+    <ClInclude Include="Input\game_action.hpp" />
+    <ClInclude Include="Input\game_input.hpp" />
+    <ClInclude Include="Player\player_controller.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\code_conventions.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EngineCore\EngineCore.vcxproj">
       <Project>{8a145539-243a-4961-9d9c-7239f917d2ba}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Game.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
+

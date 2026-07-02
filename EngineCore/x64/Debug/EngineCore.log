@@ -1,2 +1,13 @@
-﻿  window.cpp
-  EngineCore.vcxproj -> C:\Users\Tristan\AppData\Roaming\GitHub\Game\x64\Debug\EngineCore.lib
+﻿  application.cpp
+  engine.cpp
+  logger.cpp
+  openGL_error.cpp
+  graphics_context.cpp
+  renderer.cpp
+  input_system.cpp
+  keyboard.cpp
+  mouse.cpp
+  window.cpp
+  Generating Code...
+  glad.c
+  EngineCore.vcxproj -> C:\Users\Tristan\AppData\Roaming\GitHub\Game\x64\Debug\Engine.lib

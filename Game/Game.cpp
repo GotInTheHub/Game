@@ -1,44 +1,38 @@
-#include <iostream>
-#include "../EngineCore/window.h"
-#include "../EngineCore/Graphics/renderer.h"
-#include "../EngineCore/logger.h"
+#include "game.hpp"
 
-int main() {
-	if (!glfwInit()) {
-		Logger::error("Failed to initialize GLFW");
-		return -1;
-	}
+namespace Game
+{
+    void Game::initialize(Engine::Engine& engine)
+    {
+        m_controls.bind(GameAction::Jump, Engine::Key::Space);
+        m_controls.bind(GameAction::Shoot, Engine::Key::Escape);
+		m_controls.bind(GameAction::Exit, Engine::Key::Escape);
 
-	int exitCode = 0;
-	{
-		Window window;
-		if (!window.isValid()) {
-			Logger::error("Failed to create window");
-			exitCode = -1;
+        m_controls.bindAxis(GameAction::MoveForward,
+            Engine::Key::W,
+            Engine::Key::S);
+
+        m_controls.bindAxis(GameAction::MoveRight,
+            Engine::Key::D,
+            Engine::Key::A);
+    }
+
+    void Game::update(Engine::Engine& engine)
+    {
+        auto& kb = engine.input().keyboard();
+
+        m_player.update(m_controls, kb);
+
+		if (m_controls.isPressed(GameAction::Exit, kb))
+		{
+			engine.quit();
 		}
-		else {
-			GLFWwindow* glfwWindow = window.getWindow();
-			Renderer renderer;
-			if (!renderer.initialize(glfwWindow)) {
-				Logger::error("Failed to initialize renderer");
-				exitCode = -1;
-			}
-			else {
-				while (!glfwWindowShouldClose(glfwWindow)) {
-					renderer.beginFrame(0.1f, 0.1f, 0.1f, 1.0f);
+    }
 
-					// Game rendering code goes here
+    void Game::render(Engine::Engine&)
+    {}
 
-					renderer.endFrame();
-					glfwPollEvents();
-				}
-
-				renderer.shutdown();
-			}
-
-		}
-	}
-
-	glfwTerminate();
-	return exitCode;
+    void Game::shutdown()
+    {
+    }
 }
