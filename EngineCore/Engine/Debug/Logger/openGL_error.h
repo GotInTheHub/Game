@@ -1,12 +1,12 @@
 #pragma once
-
+#include "logger.h"
 #include <string>
 
 namespace Engine {
 	class OpenGLError {
 	public:
 		static void clear();
-		static bool check(const std::string& context = "");
-		static bool checkThrottled(const std::string& context = "", float throttleSeconds = 1.0f);
+		static bool check(Logger& logger, const std::string& context);
+		static bool checkThrottled(Logger& logger, const std::string& context, float throttleSeconds);
 	};
 }

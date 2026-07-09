@@ -1,5 +1,6 @@
 #pragma once
 #include <imgui.h>
+#include <cstring>
 #include "logger.h"
 
 namespace Engine {
@@ -13,7 +14,7 @@ namespace Engine {
         char m_filter[128] = "";
 
     public:
-        void draw()
+        void draw(const Logger& logger)
         {
             ImGui::Begin("Console");
 
@@ -29,7 +30,7 @@ namespace Engine {
 
             ImGui::Separator();
 
-            const auto& logs = Logger::instance().getHistory();
+            const auto& logs = logger.getHistory();
 
             for (const auto& l : logs)
             {

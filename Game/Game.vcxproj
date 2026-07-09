@@ -153,12 +153,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="application.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Input\game_input.cpp" />
     <ClCompile Include="Player\player_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="application.h" />
     <ClInclude Include="game.hpp" />
     <ClInclude Include="Input\action_map.hpp" />
     <ClInclude Include="Input\game_action.hpp" />
@@ -177,4 +179,3 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
-

@@ -4,24 +4,24 @@
 #include <iostream>
 
 namespace Engine {
-    // ---------------- Singleton ----------------
-
-    Logger& Logger::instance()
-    {
-        static Logger inst;
-        return inst;
-    }
-
     // ---------------- Lifecycle ----------------
-
-    Logger::Logger()
-    {
-        m_worker = std::thread(&Logger::workerThread, this);
-    }
 
     Logger::~Logger()
     {
         shutdown();
+    }
+
+    bool Logger::initialize(EngineContext& context)
+    {
+        m_running = true;
+
+		m_worker = std::thread(&Logger::workerThread, this);
+
+        return m_running;
+    }
+
+    void Logger::update(float dt)
+    {
     }
 
     // ---------------- Init / Shutdown ----------------
@@ -45,9 +45,10 @@ namespace Engine {
         }
     }
 
+
     // ---------------- Logging API ----------------
 
-    void Logger::log(LogLevel level, LogCategory category, const char* message)
+    void Logger::log(LogLevel level, LogCategory category, std::string_view message)
     {
         LogEntry e{};
         e.level = level;
@@ -55,8 +56,11 @@ namespace Engine {
         e.timestamp =
             (uint64_t)std::chrono::high_resolution_clock::now()
             .time_since_epoch().count();
-
-        strncpy_s(e.message, message, sizeof(e.message) - 1);
+        
+        const size_t maxLen = sizeof(e.message) - 1;
+        const size_t len = message.size() < maxLen ? message.size() : maxLen;
+        std::memcpy(e.message, message.data(), len);
+        e.message[len] = '\0';
 
         m_logBuffer.push(e);
     }
@@ -94,26 +98,4 @@ namespace Engine {
             }
         }
     };
-
-    // ---------------- Convenience ----------------
-
-    void Logger::info(LogCategory cat, const char* msg)
-    {
-        instance().log(LogLevel::INFO, cat, msg);
-    }
-
-    void Logger::warn(LogCategory cat, const char* msg)
-    {
-        instance().log(LogLevel::WARNING, cat, msg);
-    }
-
-    void Logger::error(LogCategory cat, const char* msg)
-    {
-        instance().log(LogLevel::ERROR, cat, msg);
-    }
-
-    void Logger::debug(LogCategory cat, const char* msg)
-    {
-        instance().log(LogLevel::DEBUG, cat, msg);
-    }
 }

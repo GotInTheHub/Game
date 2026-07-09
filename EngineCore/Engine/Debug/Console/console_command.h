@@ -1,15 +1,16 @@
 #pragma once
 #include <functional>
 #include <string>
-
+#include <vector>
 
 namespace Engine {
 
+	class EngineContext;
 
 	struct ConsoleCommand
 	{
 		using Callback =
-			std::function<void(const std::vector<std::string>&)>;
+			std::function<void(EngineContext&, const std::vector<std::string>&)>;
 		
 		ConsoleCommand(
 			std::string commandName,

@@ -5,6 +5,11 @@
 
 namespace Game
 {
+    void PlayerController::initialize(Engine::EngineContext& context)
+    {
+        m_context = &context;
+    }
+
     void PlayerController::update(ActionMap<GameAction>& input,
         const Engine::Keyboard& kb)
     {
@@ -22,10 +27,12 @@ namespace Game
 
     void PlayerController::jump()
     {
-		Engine::Logger::info(Engine::LogCategory::GAMEPLAY, "Player jumped!");
+        if (m_context)
+			m_context->get<Engine::Logger>().log(Engine::LogLevel::INFO, Engine::LogCategory::GAMEPLAY, "Player jumped!");
     }
     void PlayerController::move(float, float)
     {
-		Engine::Logger::info(Engine::LogCategory::GAMEPLAY, "Player moved!");
+		if (m_context)
+			m_context->get<Engine::Logger>().log(Engine::LogLevel::INFO, Engine::LogCategory::GAMEPLAY, "Player moved!");
     }
 }

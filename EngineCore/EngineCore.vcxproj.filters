@@ -30,10 +30,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Core\application.hpp">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Core\engine.hpp">
+    <ClInclude Include="Engine\Core\engine.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Graphics\graphics_context.h">
@@ -63,7 +60,7 @@
     <ClInclude Include="Engine\Window\key_translate.hpp">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Window\window.hpp">
+    <ClInclude Include="Engine\Window\window.h">
       <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Debug\Logger\log_buffer.h">
@@ -90,11 +87,14 @@
     <ClInclude Include="Engine\Debug\Console\console_command_registry.hpp">
       <Filter>Debug\Console</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\System\engine_system.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\engine_context.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Core\application.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Core\engine.cpp">
       <Filter>Core</Filter>
     </ClCompile>

@@ -154,8 +154,8 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Core\application.hpp" />
-    <ClInclude Include="Engine\Core\engine.hpp" />
+    <ClInclude Include="Engine\Core\engine.h" />
+    <ClInclude Include="Engine\Core\engine_context.h" />
     <ClInclude Include="Engine\Debug\Console\console.h" />
     <ClInclude Include="Engine\Debug\Console\console_command.h" />
     <ClInclude Include="Engine\Debug\Console\console_command_registry.hpp" />
@@ -171,12 +171,12 @@
     <ClInclude Include="Engine\Input\keyboard.hpp" />
     <ClInclude Include="Engine\Input\mouse.hpp" />
     <ClInclude Include="Engine\System\config.hpp" />
+    <ClInclude Include="Engine\System\engine_system.h" />
     <ClInclude Include="Engine\System\singleton.hpp" />
     <ClInclude Include="Engine\Window\key_translate.hpp" />
-    <ClInclude Include="Engine\Window\window.hpp" />
+    <ClInclude Include="Engine\Window\window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Core\application.cpp" />
     <ClCompile Include="Engine\Core\engine.cpp" />
     <ClCompile Include="Engine\Debug\Console\console.cpp" />
     <ClCompile Include="Engine\Debug\Logger\logger.cpp" />

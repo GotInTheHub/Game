@@ -1,9 +1,9 @@
 #pragma once
 
-#include "engine.hpp"
-#include "../../Game/game.hpp"
+#include <Engine/Core/engine.h>
+#include "game.hpp"
 
-namespace Engine
+namespace Game
 {
     class Application
     {
@@ -13,7 +13,7 @@ namespace Engine
         void run();
 
     private:
-        Engine m_engine;
-        Game::Game m_game;
+        Engine::Engine m_engine;
+        Game m_game;
     };
 }

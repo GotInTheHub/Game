@@ -4,6 +4,8 @@ namespace Game
 {
     void Game::initialize(Engine::Engine& engine)
     {
+		m_player.initialize(engine.context());
+
         m_controls.bind(GameAction::Jump, Engine::Key::Space);
         m_controls.bind(GameAction::Shoot, Engine::Key::Escape);
 		m_controls.bind(GameAction::Exit, Engine::Key::Escape);
@@ -25,7 +27,7 @@ namespace Game
 
 		if (m_controls.isPressed(GameAction::Exit, kb))
 		{
-			engine.quit();
+			engine.shutdown();
 		}
     }
 

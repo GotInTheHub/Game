@@ -1,6 +1,4 @@
 #include "openGL_error.h"
-#include "logger.h"
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -10,7 +8,7 @@ namespace Engine {
         while (glGetError() != GL_NO_ERROR) {}
     }
 
-    bool OpenGLError::check(const std::string& context)
+    bool OpenGLError::check(Logger& logger, const std::string& context)
     {
         GLenum err = glGetError();
 
@@ -31,14 +29,14 @@ namespace Engine {
             case GL_INVALID_FRAMEBUFFER_OPERATION: errorMsg += " (GL_INVALID_FRAMEBUFFER_OPERATION)"; break;
             }
 
-            Logger::error(LogCategory::RENDER, errorMsg.c_str());
+			logger.log(LogLevel::ERROR, LogCategory::RENDER, errorMsg.c_str());
             return true;
         }
 
         return false;
     }
 
-    bool OpenGLError::checkThrottled(const std::string& context, float throttleSeconds)
+    bool OpenGLError::checkThrottled(Logger& logger, const std::string& context, float throttleSeconds)
     {
         GLenum err = glGetError();
 
@@ -63,7 +61,7 @@ namespace Engine {
                 case GL_INVALID_FRAMEBUFFER_OPERATION: errorMsg += " (GL_INVALID_FRAMEBUFFER_OPERATION)"; break;
                 }
 
-                Logger::error(LogCategory::RENDER, errorMsg.c_str());
+				logger.log(LogLevel::ERROR, LogCategory::RENDER, errorMsg.c_str());
                 lastLogTime = currentTime;
             }
 

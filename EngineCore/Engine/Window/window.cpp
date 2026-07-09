@@ -1,5 +1,6 @@
-#include "window.hpp"
+#include "window.h"
 #include "key_translate.hpp"
+#include <stdexcept>
 
 namespace Engine
 {
@@ -8,8 +9,14 @@ namespace Engine
         glfwInit();
 
         m_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
-        glfwMakeContextCurrent(m_window);
 
+		if (!m_window)
+		{
+			glfwTerminate();
+			throw std::runtime_error("Failed to create GLFW window");
+		}
+
+        glfwMakeContextCurrent(m_window);
         glfwSetWindowUserPointer(m_window, this);
 
         initCallbacks();

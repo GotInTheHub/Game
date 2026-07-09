@@ -1,24 +1,27 @@
 #pragma once
 #include "graphics_context.h"
+#include "../Core/engine_context.h"
+#include "../Core/engine_config.h"
+#include "../Core/engine_system.h"
+#include "../Window/window.h"
 
 struct GLFWwindow;
 
 namespace Engine {
-	class Renderer {
+	class Renderer : public IEngineSystem {
 	private:
 		GraphicsContext m_graphicsContext;
-		GLFWwindow* m_window;
+		Window* m_window;
 		bool m_initialized;
 
 	public:
 		Renderer();
 		~Renderer();
-
-		// Initialize the renderer with a GLFW window
-		bool initialize(GLFWwindow* window);
-
-		// Shutdown the renderer
-		void shutdown();
+		
+		// IEngineSystem interface
+		bool initialize(EngineContext& context) override;
+		void shutdown() override;
+		void update(float dt) override;
 
 		// Frame management
 		void beginFrame();

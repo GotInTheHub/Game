@@ -10,25 +10,31 @@ namespace Engine
 		shutdown();
 	}
 
-	bool Renderer::initialize(GLFWwindow* window) {
+	bool Renderer::initialize(EngineContext& context)
+	{
+		Logger& logger = context.get<Logger>();
+
 		if (m_initialized) {
-			Logger::error(LogCategory::RENDER, "Renderer already initialized");
+			logger.log(LogLevel::WARNING, LogCategory::RENDER, "Renderer already initialized");
 			return false;
 		}
 
+		Window* window = context.tryGet<Window>();
+
 		if (window == nullptr) {
-			Logger::error(LogCategory::RENDER, "Window pointer is null");
+			logger.log(LogLevel::ERROR, LogCategory::RENDER, "Renderer initialization failed: Window system not found in context");
 			return false;
 		}
 
 		m_window = window;
 
-		// Make context current
-		glfwMakeContextCurrent(m_window);
+		// Make this window's GL context current before touching any
+		// GL/GLAD calls below.
+		glfwMakeContextCurrent(window->nativeHandler());
 
 		// Initialize graphics context (loads GLAD)
 		if (!m_graphicsContext.initialize((GLADloadproc)glfwGetProcAddress)) {
-			Logger::error(LogCategory::RENDER, "Failed to initialize graphics context");
+			logger.log(LogLevel::ERROR, LogCategory::RENDER, "Renderer initialization failed: Graphics context initialization failed");
 			return false;
 		}
 
@@ -37,45 +43,35 @@ namespace Engine
 		glEnable(GL_DEPTH_TEST);
 
 		m_initialized = true;
-		Logger::info(LogCategory::RENDER, "Renderer initialized successfully");
+		logger.log(LogLevel::INFO, LogCategory::RENDER, "Renderer initialized successfully");
 
 		return true;
 	}
 
 	void Renderer::shutdown() {
-		if (m_initialized) {
+		if (m_initialized)
+		{
 			m_graphicsContext.shutdown();
 			m_window = nullptr;
 			m_initialized = false;
-			Logger::info(LogCategory::RENDER, "Renderer shutdown");
 		}
+	}
+
+	void Renderer::update(float dt)
+	{
 	}
 
 	void Renderer::beginFrame() {
-		if (!m_initialized) {
-			Logger::error(LogCategory::RENDER, "Renderer not initialized");
-			return;
-		}
-
-		// Add any per-frame setup here
+		if (!m_initialized) return;
 	}
 
 	void Renderer::endFrame() {
-		if (!m_initialized) {
-			Logger::error(LogCategory::RENDER, "Renderer not initialized");
-			return;
-		}
-
-		// Swap buffers
-		glfwSwapBuffers(m_window);
+		if (!m_initialized) return;
+		glfwSwapBuffers(m_window->nativeHandler());
 	}
 
 	void Renderer::clear(float r, float g, float b, float a) {
-		if (!m_initialized) {
-			Logger::error(LogCategory::RENDER, "Renderer not initialized");
-			return;
-		}
-
+		if (!m_initialized) return;
 		glClearColor(r, g, b, a);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}

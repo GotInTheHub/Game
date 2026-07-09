@@ -1,8 +1,8 @@
-#include <Engine/Core/application.hpp>
+#include "application.h"
 
 int main()
 {
-    Engine::Application app;
+    Game::Application app;
     app.run();
     return 0;
 }

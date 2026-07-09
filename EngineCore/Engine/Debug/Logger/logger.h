@@ -6,10 +6,12 @@
 #include <fstream>
 #include <mutex>
 #include <vector>
+#include <string_view>
+#include "../../Core/engine_system.h"
 
 namespace Engine
 {
-    class Logger {
+    class Logger : public IEngineSystem {
     private:
         LogBuffer m_logBuffer;
 
@@ -25,27 +27,20 @@ namespace Engine
         std::mutex m_historyMutex;
 
     private:
-        Logger();
-        ~Logger();
-
         void workerThread();
 
     public:
-        Logger(const Logger&) = delete;
-        Logger& operator=(const Logger&) = delete;
+        Logger() = default;
 
-        static Logger& instance();
+		~Logger() override;
+        bool initialize(EngineContext& context) override;
+        void shutdown() override;
+		void update(float dt) override;
 
         void initFile(const std::string& filename);
-        void shutdown();
 
-        void log(LogLevel level, LogCategory category, const char* message);
+        void log(LogLevel level, LogCategory category, std::string_view message);
 
         const std::vector<LogEntry>& getHistory() const;
-
-        static void info(LogCategory c, const char* m);
-        static void warn(LogCategory c, const char* m);
-        static void error(LogCategory c, const char* m);
-        static void debug(LogCategory c, const char* m);
     };
 }
