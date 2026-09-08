@@ -50,6 +50,8 @@ namespace Engine {
 
     void Logger::log(LogLevel level, LogCategory category, std::string_view message)
     {
+        if (level < m_minLevel) return;
+
         LogEntry e{};
         e.level = level;
         e.category = category;
@@ -65,7 +67,7 @@ namespace Engine {
         m_logBuffer.push(e);
     }
 
-    const std::vector<LogEntry>& Logger::getHistory() const
+    const std::deque<LogEntry>& Logger::getHistory() const
     {
         return m_history;
     }
@@ -88,10 +90,10 @@ namespace Engine {
                             m_history.erase(m_history.begin());
                     }
 
-                    std::cout << e.message << std::endl;
+                    std::cout << e.message << '\n';
 
                     if (m_fileEnabled)
-                        m_logFile << e.message << std::endl;
+                        m_logFile << e.message << '\n';
                 }
 
                 std::this_thread::sleep_for(std::chrono::milliseconds(1));

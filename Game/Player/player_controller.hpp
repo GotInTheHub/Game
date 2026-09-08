@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Input/action_map.hpp"
+#include "../Input/action_map.h"
 #include "../Input/game_action.hpp"
 #include <Engine/Input/keyboard.hpp>
 #include <Engine/Core/engine_context.h>

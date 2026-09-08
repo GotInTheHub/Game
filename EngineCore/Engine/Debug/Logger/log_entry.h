@@ -4,8 +4,24 @@
 
 namespace Engine
 {
-    enum class LogLevel { INFO, WARNING, ERROR, DEBUG };
-    enum class LogCategory { ENGINE, RENDER, AUDIO, PHYSICS, GAMEPLAY, NETWORK, GENERAL };
+    enum class LogLevel
+    {
+        INFO,
+        DEBUG,
+        WARNING,
+        ERROR,
+    };
+
+    enum class LogCategory
+    {
+        ENGINE,
+        RENDER,
+        AUDIO,
+        PHYSICS,
+        GAMEPLAY,
+        NETWORK,
+        GENERAL,
+    };
 
     struct LogEntry {
         LogLevel level;

@@ -23,6 +23,10 @@ namespace Engine
 		m_context.provide<Console>(&m_console);
 		m_context.provide<Renderer>(&m_renderer);
 
+#ifdef _DEBUG
+		m_logger.setMinLogLevel(LogLevel::DEBUG);
+#endif
+
         m_systems = { &m_logger, &m_console, &m_renderer };
 
 		for (IEngineSystem* system : m_systems)
@@ -70,6 +74,8 @@ namespace Engine
 		{
 			(*it)->shutdown();
 		}
+
+        m_window->close();
     }
 
     Window& Engine::window()

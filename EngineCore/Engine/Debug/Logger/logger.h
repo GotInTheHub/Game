@@ -5,7 +5,7 @@
 #include <atomic>
 #include <fstream>
 #include <mutex>
-#include <vector>
+#include <deque>
 #include <string_view>
 #include "../../Core/engine_system.h"
 
@@ -18,12 +18,13 @@ namespace Engine
         std::thread m_worker;
         std::atomic<bool> m_running{ true };
 
+		LogLevel m_minLevel = LogLevel::WARNING;
 
         std::ofstream m_logFile;
         bool m_fileEnabled = false;
 
         // retained history for ImGui log window
-        std::vector<LogEntry> m_history;
+        std::deque<LogEntry> m_history;
         std::mutex m_historyMutex;
 
     private:
@@ -41,6 +42,8 @@ namespace Engine
 
         void log(LogLevel level, LogCategory category, std::string_view message);
 
-        const std::vector<LogEntry>& getHistory() const;
+		void setMinLogLevel(LogLevel level) { m_minLevel = level; }
+
+        const std::deque<LogEntry>& getHistory() const;
     };
 }

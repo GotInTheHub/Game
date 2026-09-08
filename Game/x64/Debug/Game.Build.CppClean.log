@@ -1,10 +1,12 @@
 c:\users\tristan\appdata\roaming\github\game\game\x64\debug\vc145.pdb
 c:\users\tristan\appdata\roaming\github\game\game\x64\debug\vc145.idb
-c:\users\tristan\appdata\roaming\github\game\game\x64\debug\main.obj
-c:\users\tristan\appdata\roaming\github\game\game\x64\debug\game.obj
-c:\users\tristan\appdata\roaming\github\game\game\x64\debug\game_input.obj
 c:\users\tristan\appdata\roaming\github\game\game\x64\debug\player_controller.obj
-\\?\c:\users\tristan\appdata\local\temp\lnk{4c23846a-63d8-4f2f-ae9d-c410888ff853}.tmp
+c:\users\tristan\appdata\roaming\github\game\game\x64\debug\game_input.obj
+c:\users\tristan\appdata\roaming\github\game\game\x64\debug\main.obj
+c:\users\tristan\appdata\roaming\github\game\game\x64\debug\action_map.obj
+c:\users\tristan\appdata\roaming\github\game\game\x64\debug\game.obj
+c:\users\tristan\appdata\roaming\github\game\game\x64\debug\application.obj
+\\?\c:\users\tristan\appdata\local\temp\lnk{f898d385-3456-46ca-b60a-695a1d800bcf}.tmp
 c:\users\tristan\appdata\roaming\github\game\x64\debug\game.pdb
 c:\users\tristan\appdata\roaming\github\game\game\x64\debug\game.ilk
 c:\users\tristan\appdata\roaming\github\game\x64\debug\game.exe

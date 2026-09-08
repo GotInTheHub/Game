@@ -39,9 +39,6 @@
     <ClInclude Include="Input\game_input.hpp">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Input\action_map.hpp">
-      <Filter>Input</Filter>
-    </ClInclude>
     <ClInclude Include="Player\player_controller.hpp">
       <Filter>Player</Filter>
     </ClInclude>
@@ -50,6 +47,9 @@
     </ClInclude>
     <ClInclude Include="application.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\action_map.h">
+      <Filter>Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,8 @@
 #include <unordered_map>
 #include <typeindex>
 #include <cassert>
+#include <stdexcept>
+#include <iostream>
 
 namespace Engine
 {
@@ -22,6 +24,12 @@ namespace Engine
 		{
 			T* system = tryGet<T>();
 			assert(system && "EngineContext::get<T>() - System not registered");
+			
+			if (!system) {
+				std::cout << "EngineContext::get<T>() - System not registered: " << typeid(T).name() << std::endl;
+				throw std::runtime_error("EngineContext::get<T>() - System not registered");
+			}
+
 			return *system;
 		}
 

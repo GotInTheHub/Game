@@ -1,7 +1,7 @@
 #pragma once
 
 #include "game_action.hpp"
-#include "action_map.hpp"
+#include "action_map.h"
 
 namespace Game
 {

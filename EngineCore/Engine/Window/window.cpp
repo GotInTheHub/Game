@@ -18,7 +18,7 @@ namespace Engine
 
         glfwMakeContextCurrent(m_window);
         glfwSetWindowUserPointer(m_window, this);
-
+		glfwSwapInterval(1); // Enable vsync
         initCallbacks();
     }
 
